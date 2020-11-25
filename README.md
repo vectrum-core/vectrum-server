@@ -1,2 +1,1 @@
-# vectrum-server
-VECTRUM WEB Server
+# VECTRUM WEB SERVER

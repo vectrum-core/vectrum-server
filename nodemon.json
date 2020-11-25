@@ -1,0 +1,16 @@
+{
+  "verbose": false,
+  "watch": [
+    "nodemon.json",
+    "package.json",
+    "src/*",
+    "bin/vectrum-server"
+  ],
+  "ignore": [
+    ".git/*",
+    ".vscode/*",
+    "data/*",
+    "docker/*",
+    "docs/*"
+  ]
+}
