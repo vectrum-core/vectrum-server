@@ -1,0 +1,13 @@
+{
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "editor.rulers": [
+    80,
+    120
+  ],
+  "editor.renderWhitespace": "all",
+  "editor.formatOnSave": true,
+  "eslint.validate": [
+    "javascript"
+  ]
+}
