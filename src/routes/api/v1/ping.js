@@ -13,7 +13,7 @@ router.get('/',
     answer.result = 'pong';
     answer.ok = true;
 
-    log.trace('%s. response: %s', logTrace, SS(answer));
+    log.trace('%s. response: "%s"', logTrace, SS(answer));
     return res.json(answer);
   }
 );
@@ -26,7 +26,7 @@ router.post('/',
     answer.result = 'pong';
     answer.ok = true;
 
-    log.trace('%s. response: %s', logTrace, SS(answer));
+    log.trace('%s. response: "%s"', logTrace, SS(answer));
     return res.json(answer);
   }
 );
