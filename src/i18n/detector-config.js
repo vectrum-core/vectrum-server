@@ -11,7 +11,7 @@ module.exports = {
 
   // keys or params to lookup language from
   //lookupQuerystring: 'lng',
-  lookupCookie: 'lng',
+  lookupCookie: 'i18next',
   //lookupHeader: 'accept-language',
   //lookupSession: 'lng',
   //lookupPath: 'lng',
