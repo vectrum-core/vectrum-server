@@ -18,6 +18,7 @@ router.get('/',
   }
 );
 
+
 router.post('/',
   async (req, res, next) => {
     const logTrace = 'POST';
