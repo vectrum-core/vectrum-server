@@ -15,6 +15,12 @@ const config = convict(schema);
 // Load environment dependent configuration.
 const env = config.get('env');
 
+// Set env prefix for configuration and log file names.
+if (env !== 'production') {
+  config.set('config.file.name', env + '-' + config.get('config.file.name'));
+  config.set('logger.file.name', env + '-' + config.get('logger.file.name'));
+}
+
 // Set global path to data dir.
 const dataDirPath = path.resolve(__dirname, config.get('data.dir'));
 
@@ -39,15 +45,10 @@ if (config.get('config.file.print')) {
 
 config.set('data.dir', dataDirPath);
 
-// Set env prefix for configuration and log file names.
-if (env !== 'production') {
-  config.set('config.file.name', env + '-' + config.get('config.file.name'));
-  config.set('logger.file.name', env + '-' + config.get('logger.file.name'));
-}
-
 // Set global path to configuration file.
 const configFileName = config.get('config.file.name');
 const configFilePath = path.resolve(__dirname, config.get('data.dir'), configFileName);
+config.set('config.file.path', configFilePath);
 
 // Load configuration file.
 if (fs.existsSync(configFilePath)) {
