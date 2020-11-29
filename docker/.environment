@@ -1,0 +1,3 @@
+export ORG=vectrum
+export REPO=vectrum-server
+export VERSION=v0.1.0
