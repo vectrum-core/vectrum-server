@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const SS = require('../../../lib/smart-stringify');
-const log = require('../../../logger').getLogger('/api/v1/ping');
+const log = require('../../../logger').getLogger('ROUTER: "/api/v1/ping"');
 
 
 
