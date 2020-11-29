@@ -14,7 +14,6 @@ router.get('/',
     answer.ok = true;
 
     log.trace('%s. response: "%s"', logTrace, SS(answer));
-    res.status(200);
     return res.json(answer);
   }
 );
@@ -29,7 +28,6 @@ router.post('/',
     answer.ok = true;
 
     log.trace('%s. response: "%s"', logTrace, SS(answer));
-    res.status(200);
     return res.json(answer);
   }
 );

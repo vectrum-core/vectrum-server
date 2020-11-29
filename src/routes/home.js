@@ -4,7 +4,6 @@ const router = express.Router();
 
 
 router.get('/', (req, res, next) => {
-  res.status(200);
   res.render('index', {
     lang: req.language,
     title: `${req.t('Project Title')}`,
