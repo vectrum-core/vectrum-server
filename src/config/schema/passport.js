@@ -17,7 +17,7 @@ const schema = {
         keylen: {
           doc: 'passport password hash keylen',
           format: Number,
-          default: 512,//512,
+          default: 512, //512,
         },
         digest: {
           doc: 'passport password hash digest',
