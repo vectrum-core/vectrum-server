@@ -8,7 +8,7 @@ const log = require('../logger').getLogger('PASSPORT');
 
 
 
-const emailRegExp = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+const emailRegExp = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,})+$/;
 const tgUsernameRegExp = /^([a-zA-Z0-9]{5,20})+$/;
 
 const localStrategyOptions = {
