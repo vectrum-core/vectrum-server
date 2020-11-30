@@ -21,7 +21,7 @@ passport.use(new LocalStrategy(localStrategyOptions, (username, password, done) 
 
   if (emailRegExp.test(username)) {
     conditions.email = username;
-    type = 'email';
+    type = 'email.value';
   } else if (tgUsernameRegExp.test(username)) {
     conditions['tg_user.username'] = username;
     type = 'tg_user.username';
