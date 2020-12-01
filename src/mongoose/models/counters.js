@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 
 const name = 'counters';
 
+// https://github.com/ramiel/mongoose-sequence
 const schema = new Schema({
   id: { type: String, required: true, },
   reference_value: { type: Schema.Types.Mixed, required: true, },
