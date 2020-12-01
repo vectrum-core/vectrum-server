@@ -1,32 +1,32 @@
-const isProd = process.env.NODE_ENV === 'production';
+const os = require('os');
 
 
 
 const schema = {
   logger: {
     level: {
-      doc: 'logger.level',
-      format: String,
-      default: isProd ? 'info' : 'trace', // fatal, error, warn, info, debug, trace
+      doc: 'Logger level',
+      format: ['fatal', 'error', 'warn', 'info', 'debug', 'trace'],
+      default: isProd ? 'info' : 'trace',
     },
     appenders: {
       stdout: {
-        doc: 'logger.appenders.stdout',
+        doc: 'Logger appender stdout',
         format: Boolean,
         default: false,
       },
       stderr: {
-        doc: 'logger.appenders.stderr',
+        doc: 'Logger appender stderr',
         format: Boolean,
         default: false,
       },
       gelf: {
-        doc: 'logger.appenders.gelf',
+        doc: 'Logger appender gelf',
         format: Boolean,
         default: false,
       },
       file: {
-        doc: 'logger.appenders.file',
+        doc: 'Logger appender file',
         format: Boolean,
         default: false,
       },
@@ -34,23 +34,23 @@ const schema = {
     gelf: {
       host: {
         doc: 'logger gelf host',
-        format: String,
-        default: 'localhost', // host - string(defaults to localhost) - the gelf server hostname
+        format: '*',
+        default: '127.0.0.1', // host - string(defaults to localhost) - the gelf server hostname
       },
       port: {
         doc: 'logger gelf port',
-        format: Number,
+        format: 'port',
         default: 12201, //port - integer(defaults to 12201) - the port the gelf server is listening on
       },
       hostname: {
         doc: 'logger gelf hostname',
         format: String,
-        default: 'vectrum-server', // + require('os').hostname(), // hostname - string(defaults to OS.hostname()) - the hostname used to identify the origin of the log messages.
+        default: os.hostname(), // hostname - string(defaults to OS.hostname()) - the hostname used to identify the origin of the log messages.
       },
       facility: {
         doc: 'logger gelf facility',
         format: String,
-        default: 'vectrum-server', // facility - string(optional)
+        default: os.hostname(), // facility - string(optional)
       },
       customFields: {
         doc: 'logger gelf customFields',

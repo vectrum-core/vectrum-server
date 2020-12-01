@@ -1,18 +1,14 @@
-const isProduction = process.env.NODE_ENV === 'production';
-
-
-
 const schema = {
   domains: {
     root: {
       doc: 'Root domain',
       format: String,
-      default: isProduction ? 'https://vectrum.group' : 'http://localhost:3001',
+      default: 'http://127.0.0.1',
     },
     api: {
       doc: 'API domain',
       format: String,
-      default: isProduction ? 'https://vectrum.group' : 'http://localhost:3001',
+      default: 'http://127.0.0.1',
     },
   },
 };

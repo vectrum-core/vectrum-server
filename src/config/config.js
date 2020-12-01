@@ -33,6 +33,7 @@ if (!fs.existsSync(dataDirPath)) {
 
 // Save default config file or rewrite existed config file.
 if (config.get('config.file.save')) {
+  config.set('config.file.save', false);
   const options = { encoding: 'utf8', mode: 0o777, flag: 'w' };
   fs.writeFileSync(configFilePath, config.toString(), options);
   process.exit(1);
@@ -40,6 +41,7 @@ if (config.get('config.file.save')) {
 
 // Print default config file to console.
 if (config.get('config.file.print')) {
+  config.set('config.file.print', false);
   console.log(config.toString());
   process.exit(1);
 }

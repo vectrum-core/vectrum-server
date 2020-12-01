@@ -13,11 +13,11 @@ const schema = {
     algorithms: {
       doc: 'jwt algorithms',
       format: Array,
-      default: ['HS256', 'ES256', 'RS256'],
+      default: ['HS256', 'ES256'],
     },
     sign_by: {
       doc: 'jwt sign by',
-      format: ['key', 'secret'],
+      format: ['secret', 'key'],
       default: 'secret',
     },
     secret: {
@@ -43,7 +43,7 @@ const schema = {
     issuer: {
       doc: 'jwt issuer',
       format: String,
-      default: 'http://localhost.local',
+      default: 'http://127.0.0.1',
     },
   }
 };

@@ -1,20 +1,16 @@
-const isProduction = process.env.NODE_ENV === 'production';
-
-
-
 const schema = {
   server: {
     secure_mode: {
       doc: 'Server secure mode.',
       format: Boolean,
-      default: isProduction ? true : false,
+      default: false,
       env: 'SERVER_SECURE_MODE',
       arg: 'server-secure-mode',
     },
     host: {
       doc: 'The IP address to bind.',
       format: '*',
-      default: '0.0.0.0',
+      default: '127.0.0.1',
       env: 'SERVER_HOST',
       arg: 'server-host',
     },
@@ -33,7 +29,7 @@ const schema = {
       port: {
         doc: 'The HTTP port to bind.',
         format: 'port',
-        default: isProduction ? 80 : 3001,
+        default: 80,
         env: 'SERVER_HTTP_PORT',
         arg: 'server-http-port',
       },
@@ -43,7 +39,7 @@ const schema = {
       port: {
         doc: 'The HTTPS port to bind.',
         format: 'port',
-        default: isProduction ? 443 : 4443,
+        default: 443,
         env: 'SERVER_HTTPS_PORT',
         arg: 'server-https-port',
       },

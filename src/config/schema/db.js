@@ -1,7 +1,3 @@
-const isProduction = process.env.NODE_ENV === 'production';
-
-
-
 const schema = {
   db: {
     host: {
@@ -21,7 +17,7 @@ const schema = {
     name: {
       doc: 'db name',
       format: String,
-      default: 'VECTRUM',
+      default: 'DB',
       env: 'DB_NAME',
       arg: 'db-name',
     },
@@ -53,7 +49,7 @@ const schema = {
       autoIndex: {
         doc: 'options autoIndex',
         format: Boolean,
-        default: isProduction ? false : true,
+        default: true,
       },
       autoReconnect: {
         doc: 'options autoReconnect',
