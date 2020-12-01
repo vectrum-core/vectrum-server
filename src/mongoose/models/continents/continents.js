@@ -14,7 +14,7 @@ const schema = new Schema({
   title: { type: String, trim: true, },
   enabled: { type: Boolean, sparse: true, default: false, },
   visible: { type: Boolean, sparse: true, default: false, },
-  serial_number: { type: Number, sparse: true, default: 100000, },
+  serial_number: { type: Number, sparse: true, default: 1100000, },
 }, {
   timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
 });
@@ -31,7 +31,7 @@ model.estimatedDocumentCount(async (error, count) => {
   if (count === 0) {
     const docs = [];
     const docsObj = require('./continents.json');
-    let serialNumber = 10000;
+    let serialNumber = 1000000;
     for (let key in docsObj) {
       docsObj[key].enabled = true;
       docsObj[key].visible = true;
