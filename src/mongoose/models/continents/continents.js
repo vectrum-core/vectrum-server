@@ -22,16 +22,16 @@ const schema = new Schema({
 });
 
 
-schema.plugin(
-  AutoIncrementPlugin,
-  { id: name, inc_field: 'num', start_seq: 1, },
-);
-
-
 schema.pre('validate', async function (next) {
   if (!this._id) this._id = this.code;
   next();
 });
+
+
+schema.plugin(
+  AutoIncrementPlugin,
+  { id: name, inc_field: 'num', start_seq: 1, },
+);
 
 
 const model = mongoose.model(name, schema);

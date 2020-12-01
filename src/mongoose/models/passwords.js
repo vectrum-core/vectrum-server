@@ -22,7 +22,6 @@ const schema = new Schema({
     digest: { type: String, required: true, default: cfg.get('password.hash.digest'), },
     value: { type: String, trim: true, required: true, },
   },
-
 }, {
   timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
 });

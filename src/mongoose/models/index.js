@@ -7,4 +7,7 @@ module.exports = {
   emails: require('./emails'),
   passwords: require('./passwords'),
   users: require('./users'),
+  tg_users: require('./tg-users'),
+  tg_contacts: require('./tg-contacts'),
+  phone_numbers: require('./phone-numbers'),
 };
