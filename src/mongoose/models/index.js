@@ -1,5 +1,6 @@
 module.exports = {
   counters: require('./counters'),
+  mails: require('./mails'),
   continents: require('./continents'),
   countries: require('./countries'),
   time_zones: require('./time-zones'),
