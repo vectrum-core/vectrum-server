@@ -6,7 +6,7 @@ const cfg = require('../../config');
 
 
 
-const modelName = 'passwords';
+const name = 'passwords';
 
 const schema = new Schema({
   num: { type: Number, min: 1, },
@@ -22,6 +22,7 @@ const schema = new Schema({
     digest: { type: String, required: true, default: cfg.get('password.hash.digest'), },
     value: { type: String, trim: true, required: true, },
   },
+
 }, {
   timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
 });
@@ -57,10 +58,10 @@ schema.methods.validatePassword = function (password) {
 
 schema.plugin(
   AutoIncrementPlugin,
-  { id: modelName, inc_field: 'num', start_seq: 1, },
+  { id: name, inc_field: 'num', start_seq: 1, },
 );
 
 
-module.exports = mongoose.model(modelName, schema);
-module.exports.name = modelName;
+module.exports = mongoose.model(name, schema);
+module.exports.name = name;
 module.exports.schema = schema;
