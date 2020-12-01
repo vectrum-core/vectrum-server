@@ -1,4 +1,4 @@
-const isProduction = process.env.NODE_ENV === 'production';
+const crypto = require('crypto');
 
 
 
@@ -6,7 +6,7 @@ const schema = {
   secret: {
     doc: 'session store secret',
     format: String,
-    default: isProduction ? undefined : 'keyboard^cat^vectrum',
+    default: crypto.randomBytes(64).toString('hex'),
   },
   algorithm: {
     doc: 'session store algorithm (Allows for changes to the default symmetric encryption cipher; default is GCM. See crypto.getCiphers() for supported algorithms.)',

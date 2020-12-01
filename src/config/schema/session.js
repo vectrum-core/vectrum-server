@@ -1,7 +1,9 @@
+const crypto = require('crypto');
 const store = require('./session-store');
+
+
+
 const isProduction = process.env.NODE_ENV === 'production';
-
-
 
 const schema = {
   session: {
@@ -18,7 +20,7 @@ const schema = {
     secret: {
       doc: 'session secret',
       format: String,
-      default: isProduction ? undefined : 'keyboard^cat^vectrum',
+      default: crypto.randomBytes(64).toString('hex'),
     },
     resave: {
       doc: 'session resave',
@@ -35,7 +37,7 @@ const schema = {
       maxAge: {
         doc: 'session cookie.maxAge (number in milliseconds)',
         format: Number,
-        default: isProduction ? 1 * 60 * 60 * 1000 : 60 * 1000,
+        default: isProduction ? 365 * 24 * 60 * 60 * 1000 : 60 * 1000,
       },
       secure: {
         doc: 'session cookie.secure',

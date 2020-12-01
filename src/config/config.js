@@ -28,6 +28,7 @@ const dataDirPath = path.resolve(__dirname, config.get('data.dir'));
 if (!fs.existsSync(dataDirPath)) {
   const options = { recursive: true, mode: 0o777, };
   fs.mkdirSync(dataDirPath, options);
+  fs.mkdirSync(dataDirPath + '/public', options);
 }
 
 // Save default config file or rewrite existed config file.
