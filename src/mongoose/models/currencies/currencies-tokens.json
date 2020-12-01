@@ -1,0 +1,14 @@
+{
+  "USDT": {
+    "_id": "USDT",
+    "code": "USDT",
+    "decimals": 6,
+    "symbol": "USDT",
+    "symbol_native": "USDT",
+    "title": "Tether (ERC20)",
+    "thousands_sep": ",",
+    "decimal_sep": ".",
+    "symbol_left": false,
+    "space_between": true
+  }
+}
