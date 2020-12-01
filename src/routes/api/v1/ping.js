@@ -7,13 +7,13 @@ const log = require('../../../logger').getLogger('ROUTER: "/api/v1/ping"');
 
 router.get('/',
   async (req, res, next) => {
-    const logTrace = 'GET';
+    const logTrace = 'Method GET.';
     const answer = { jsonrpc: '2.0', id: null, ok: false, error: undefined, result: undefined, };
 
     answer.result = 'pong';
     answer.ok = true;
 
-    log.trace('%s. response: "%s"', logTrace, SS(answer));
+    log.trace('%s Response: "%s"', logTrace, SS(answer));
     return res.json(answer);
   }
 );
@@ -21,13 +21,13 @@ router.get('/',
 
 router.post('/',
   async (req, res, next) => {
-    const logTrace = 'POST';
+    const logTrace = 'Method POST.';
     const answer = { jsonrpc: '2.0', id: null, ok: false, error: undefined, result: undefined, };
 
     answer.result = 'pong';
     answer.ok = true;
 
-    log.trace('%s. response: "%s"', logTrace, SS(answer));
+    log.trace('%s Response: "%s"', logTrace, SS(answer));
     return res.json(answer);
   }
 );
