@@ -28,6 +28,12 @@ schema.plugin(
 );
 
 
+schema.pre('validate', async function (next) {
+  if (!this._id) this._id = this.code;
+  next();
+});
+
+
 const model = mongoose.model(name, schema);
 model.estimatedDocumentCount(async (error, count) => {
   if (count === 0) {
