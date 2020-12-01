@@ -1,0 +1,914 @@
+{
+  "af": {
+    "_id": "af",
+    "code": "af",
+    "emoji": "🇿🇦",
+    "emoji_unicode": "U+1F1FF U+1F1E6",
+    "title": "Afrikaans",
+    "title_native": "Afrikaans"
+  },
+  "am": {
+    "_id": "am",
+    "code": "am",
+    "emoji": "🇪🇹",
+    "emoji_unicode": "U+1F1EA U+1F1F9",
+    "title": "Amharic",
+    "title_native": "አማርኛ"
+  },
+  "ar": {
+    "_id": "ar",
+    "code": "ar",
+    "emoji": "🇪🇬",
+    "emoji_unicode": "U+1F1EA U+1F1EC",
+    "title": "Arabic",
+    "title_native": "العربية"
+  },
+  "ay": {
+    "_id": "ay",
+    "code": "ay",
+    "emoji": "🇧🇴",
+    "emoji_unicode": "U+1F1E7 U+1F1F4",
+    "title": "Aymara",
+    "title_native": "Aymar"
+  },
+  "az": {
+    "_id": "az",
+    "code": "az",
+    "emoji": "🇦🇿",
+    "emoji_unicode": "U+1F1E6 U+1F1FF",
+    "title": "Azerbaijani",
+    "title_native": "Azərbaycanca / آذربايجان"
+  },
+  "be": {
+    "_id": "be",
+    "code": "be",
+    "emoji": "🇧🇾",
+    "emoji_unicode": "U+1F1E7 U+1F1FE",
+    "title": "Belarusian",
+    "title_native": "Беларуская"
+  },
+  "bg": {
+    "_id": "bg",
+    "code": "bg",
+    "emoji": "🇧🇬",
+    "emoji_unicode": "U+1F1E7 U+1F1EC",
+    "title": "Bulgarian",
+    "title_native": "Български"
+  },
+  "bi": {
+    "_id": "bi",
+    "code": "bi",
+    "emoji": "🇻🇺",
+    "emoji_unicode": "U+1F1FB U+1F1FA",
+    "title": "Bislama",
+    "title_native": "Bislama"
+  },
+  "bn": {
+    "_id": "bn",
+    "code": "bn",
+    "emoji": "🇧🇩",
+    "emoji_unicode": "U+1F1E7 U+1F1E9",
+    "title": "Bengali",
+    "title_native": "বাংলা"
+  },
+  "bs": {
+    "_id": "bs",
+    "code": "bs",
+    "emoji": "🇧🇦",
+    "emoji_unicode": "U+1F1E7 U+1F1E6",
+    "title": "Bosnian",
+    "title_native": "Bosanski"
+  },
+  "ca": {
+    "_id": "ca",
+    "code": "ca",
+    "emoji": "🇪🇸",
+    "emoji_unicode": "U+1F1EA U+1F1F8",
+    "title": "Catalan",
+    "title_native": "Català"
+  },
+  "ch": {
+    "_id": "ch",
+    "code": "ch",
+    "emoji": "🇬🇺",
+    "emoji_unicode": "U+1F1EC U+1F1FA",
+    "title": "Chamorro",
+    "title_native": "Chamoru"
+  },
+  "cs": {
+    "_id": "cs",
+    "code": "cs",
+    "emoji": "🇨🇿",
+    "emoji_unicode": "U+1F1E8 U+1F1FF",
+    "title": "Czech",
+    "title_native": "Čeština"
+  },
+  "da": {
+    "_id": "da",
+    "code": "da",
+    "emoji": "🇩🇰",
+    "emoji_unicode": "U+1F1E9 U+1F1F0",
+    "title": "Danish",
+    "title_native": "Dansk"
+  },
+  "de": {
+    "_id": "de",
+    "code": "de",
+    "emoji": "🇩🇪",
+    "emoji_unicode": "U+1F1E9 U+1F1EA",
+    "title": "German",
+    "title_native": "Deutsch"
+  },
+  "dv": {
+    "_id": "dv",
+    "code": "dv",
+    "emoji": "🇲🇻",
+    "emoji_unicode": "U+1F1F2 U+1F1FB",
+    "title": "Divehi",
+    "title_native": "ދިވެހިބަސް"
+  },
+  "dz": {
+    "_id": "dz",
+    "code": "dz",
+    "emoji": "🇧🇹",
+    "emoji_unicode": "U+1F1E7 U+1F1F9",
+    "title": "Dzongkha",
+    "title_native": "ཇོང་ཁ"
+  },
+  "el": {
+    "_id": "el",
+    "code": "el",
+    "emoji": "🇬🇷",
+    "emoji_unicode": "U+1F1EC U+1F1F7",
+    "title": "Greek",
+    "title_native": "Ελληνικά"
+  },
+  "en": {
+    "_id": "en",
+    "code": "en",
+    "emoji": "🇺🇸",
+    "emoji_unicode": "U+1F1FA U+1F1F8",
+    "title": "English",
+    "title_native": "English"
+  },
+  "es": {
+    "_id": "es",
+    "code": "es",
+    "emoji": "🇪🇸",
+    "emoji_unicode": "U+1F1EA U+1F1F8",
+    "title": "Spanish",
+    "title_native": "Español"
+  },
+  "et": {
+    "_id": "et",
+    "code": "et",
+    "emoji": "🇪🇪",
+    "emoji_unicode": "U+1F1EA U+1F1EA",
+    "title": "Estonian",
+    "title_native": "Eesti"
+  },
+  "eu": {
+    "_id": "eu",
+    "code": "eu",
+    "emoji": "🇪🇸",
+    "emoji_unicode": "U+1F1EA U+1F1F8",
+    "title": "Basque",
+    "title_native": "Euskara"
+  },
+  "fa": {
+    "_id": "fa",
+    "code": "fa",
+    "emoji": "🇮🇷",
+    "emoji_unicode": "U+1F1EE U+1F1F7",
+    "title": "Persian",
+    "title_native": "فارسی"
+  },
+  "ff": {
+    "_id": "ff",
+    "code": "ff",
+    "emoji": "🇸🇳",
+    "emoji_unicode": "U+1F1F8 U+1F1F3",
+    "title": "Peul",
+    "title_native": "Fulfulde"
+  },
+  "fi": {
+    "_id": "fi",
+    "code": "fi",
+    "emoji": "🇫🇮",
+    "emoji_unicode": "U+1F1EB U+1F1EE",
+    "title": "Finnish",
+    "title_native": "Suomi"
+  },
+  "fj": {
+    "_id": "fj",
+    "code": "fj",
+    "emoji": "🇫🇯",
+    "emoji_unicode": "U+1F1EB U+1F1EF",
+    "title": "Fijian",
+    "title_native": "Na Vosa Vakaviti"
+  },
+  "fo": {
+    "_id": "fo",
+    "code": "fo",
+    "emoji": "🇫🇴",
+    "emoji_unicode": "U+1F1EB U+1F1F4",
+    "title": "Faroese",
+    "title_native": "Føroyskt"
+  },
+  "fr": {
+    "_id": "fr",
+    "code": "fr",
+    "emoji": "🇫🇷",
+    "emoji_unicode": "U+1F1EB U+1F1F7",
+    "title": "French",
+    "title_native": "Français"
+  },
+  "ga": {
+    "_id": "ga",
+    "code": "ga",
+    "emoji": "🇮🇪",
+    "emoji_unicode": "U+1F1EE U+1F1EA",
+    "title": "Irish",
+    "title_native": "Gaeilge"
+  },
+  "gl": {
+    "_id": "gl",
+    "code": "gl",
+    "emoji": "🇪🇸",
+    "emoji_unicode": "U+1F1EA U+1F1F8",
+    "title": "Galician",
+    "title_native": "Galego"
+  },
+  "gn": {
+    "_id": "gn",
+    "code": "gn",
+    "emoji": "🇵🇾",
+    "emoji_unicode": "U+1F1F5 U+1F1FE",
+    "title": "Guarani",
+    "title_native": "Avañe'ẽ"
+  },
+  "gv": {
+    "_id": "gv",
+    "code": "gv",
+    "emoji": "🇮🇲",
+    "emoji_unicode": "U+1F1EE U+1F1F2",
+    "title": "Manx",
+    "title_native": "Gaelg"
+  },
+  "he": {
+    "_id": "he",
+    "code": "he",
+    "emoji": "🇮🇱",
+    "emoji_unicode": "U+1F1EE U+1F1F1",
+    "title": "Hebrew",
+    "title_native": "עברית"
+  },
+  "hi": {
+    "_id": "hi",
+    "code": "hi",
+    "emoji": "🇮🇳",
+    "emoji_unicode": "U+1F1EE U+1F1F3",
+    "title": "Hindi",
+    "title_native": "हिन्दी"
+  },
+  "hr": {
+    "_id": "hr",
+    "code": "hr",
+    "emoji": "🇭🇷",
+    "emoji_unicode": "U+1F1ED U+1F1F7",
+    "title": "Croatian",
+    "title_native": "Hrvatski"
+  },
+  "ht": {
+    "_id": "ht",
+    "code": "ht",
+    "emoji": "🇭🇹",
+    "emoji_unicode": "U+1F1ED U+1F1F9",
+    "title": "Haitian",
+    "title_native": "Krèyol ayisyen"
+  },
+  "hu": {
+    "_id": "hu",
+    "code": "hu",
+    "emoji": "🇭🇺",
+    "emoji_unicode": "U+1F1ED U+1F1FA",
+    "title": "Hungarian",
+    "title_native": "Magyar"
+  },
+  "hy": {
+    "_id": "hy",
+    "code": "hy",
+    "emoji": "🇦🇲",
+    "emoji_unicode": "U+1F1E6 U+1F1F2",
+    "title": "Armenian",
+    "title_native": "Հայերեն"
+  },
+  "id": {
+    "_id": "id",
+    "code": "id",
+    "emoji": "🇮🇩",
+    "emoji_unicode": "U+1F1EE U+1F1E9",
+    "title": "Indonesian",
+    "title_native": "Bahasa Indonesia"
+  },
+  "is": {
+    "_id": "is",
+    "code": "is",
+    "emoji": "🇮🇸",
+    "emoji_unicode": "U+1F1EE U+1F1F8",
+    "title": "Icelandic",
+    "title_native": "Íslenska"
+  },
+  "it": {
+    "_id": "it",
+    "code": "it",
+    "emoji": "🇮🇹",
+    "emoji_unicode": "U+1F1EE U+1F1F9",
+    "title": "Italian",
+    "title_native": "Italiano"
+  },
+  "ja": {
+    "_id": "ja",
+    "code": "ja",
+    "emoji": "🇯🇵",
+    "emoji_unicode": "U+1F1EF U+1F1F5",
+    "title": "Japanese",
+    "title_native": "日本語"
+  },
+  "ka": {
+    "_id": "ka",
+    "code": "ka",
+    "emoji": "🇬🇪",
+    "emoji_unicode": "U+1F1EC U+1F1EA",
+    "title": "Georgian",
+    "title_native": "ქართული"
+  },
+  "kg": {
+    "_id": "kg",
+    "code": "kg",
+    "emoji": "🇨🇩",
+    "emoji_unicode": "U+1F1E8 U+1F1E9",
+    "title": "Kongo",
+    "title_native": "KiKongo"
+  },
+  "kk": {
+    "_id": "kk",
+    "code": "kk",
+    "emoji": "🇰🇿",
+    "emoji_unicode": "U+1F1F0 U+1F1FF",
+    "title": "Kazakh",
+    "title_native": "Қазақша"
+  },
+  "kl": {
+    "_id": "kl",
+    "code": "kl",
+    "emoji": "🇬🇱",
+    "emoji_unicode": "U+1F1EC U+1F1F1",
+    "title": "Greenlandic",
+    "title_native": "Kalaallisut"
+  },
+  "km": {
+    "_id": "km",
+    "code": "km",
+    "emoji": "🇰🇭",
+    "emoji_unicode": "U+1F1F0 U+1F1ED",
+    "title": "Cambodian",
+    "title_native": "ភាសាខ្មែរ"
+  },
+  "ko": {
+    "_id": "ko",
+    "code": "ko",
+    "emoji": "🇰🇷",
+    "emoji_unicode": "U+1F1F0 U+1F1F7",
+    "title": "Korean",
+    "title_native": "한국어"
+  },
+  "ku": {
+    "_id": "ku",
+    "code": "ku",
+    "emoji": "🇹🇷",
+    "emoji_unicode": "U+1F1F9 U+1F1F7",
+    "title": "Kurdish",
+    "title_native": "Kurdî / كوردی"
+  },
+  "ky": {
+    "_id": "ky",
+    "code": "ky",
+    "emoji": "🇰🇬",
+    "emoji_unicode": "U+1F1F0 U+1F1EC",
+    "title": "Kyrgyz",
+    "title_native": "Кыргызча"
+  },
+  "la": {
+    "_id": "la",
+    "code": "la",
+    "emoji": "🇻🇦",
+    "emoji_unicode": "U+1F1FB U+1F1E6",
+    "title": "Latin",
+    "title_native": "Latina"
+  },
+  "lb": {
+    "_id": "lb",
+    "code": "lb",
+    "emoji": "🇱🇺",
+    "emoji_unicode": "U+1F1F1 U+1F1FA",
+    "title": "Luxembourgish",
+    "title_native": "Lëtzebuergesch"
+  },
+  "ln": {
+    "_id": "ln",
+    "code": "ln",
+    "emoji": "🇨🇩",
+    "emoji_unicode": "U+1F1E8 U+1F1E9",
+    "title": "Lingala",
+    "title_native": "Lingála"
+  },
+  "lo": {
+    "_id": "lo",
+    "code": "lo",
+    "emoji": "🇱🇦",
+    "emoji_unicode": "U+1F1F1 U+1F1E6",
+    "title": "Laotian",
+    "title_native": "ລາວ / Pha xa lao"
+  },
+  "lt": {
+    "_id": "lt",
+    "code": "lt",
+    "emoji": "🇱🇹",
+    "emoji_unicode": "U+1F1F1 U+1F1F9",
+    "title": "Lithuanian",
+    "title_native": "Lietuvių"
+  },
+  "lu": {
+    "_id": "lu",
+    "code": "lu",
+    "emoji": "🇨🇩",
+    "emoji_unicode": "U+1F1E8 U+1F1E9",
+    "title": "Luba-Katanga",
+    "title_native": "Tshiluba"
+  },
+  "lv": {
+    "_id": "lv",
+    "code": "lv",
+    "emoji": "🇱🇻",
+    "emoji_unicode": "U+1F1F1 U+1F1FB",
+    "title": "Latvian",
+    "title_native": "Latviešu"
+  },
+  "mg": {
+    "_id": "mg",
+    "code": "mg",
+    "emoji": "🇲🇬",
+    "emoji_unicode": "U+1F1F2 U+1F1EC",
+    "title": "Malagasy",
+    "title_native": "Malagasy"
+  },
+  "mh": {
+    "_id": "mh",
+    "code": "mh",
+    "emoji": "🇲🇭",
+    "emoji_unicode": "U+1F1F2 U+1F1ED",
+    "title": "Marshallese",
+    "title_native": "Kajin Majel / Ebon"
+  },
+  "mi": {
+    "_id": "mi",
+    "code": "mi",
+    "emoji": "🇳🇿",
+    "emoji_unicode": "U+1F1F3 U+1F1FF",
+    "title": "Maori",
+    "title_native": "Māori"
+  },
+  "mk": {
+    "_id": "mk",
+    "code": "mk",
+    "emoji": "🇲🇰",
+    "emoji_unicode": "U+1F1F2 U+1F1F0",
+    "title": "Macedonian",
+    "title_native": "Македонски"
+  },
+  "mn": {
+    "_id": "mn",
+    "code": "mn",
+    "emoji": "🇲🇳",
+    "emoji_unicode": "U+1F1F2 U+1F1F3",
+    "title": "Mongolian",
+    "title_native": "Монгол"
+  },
+  "ms": {
+    "_id": "ms",
+    "code": "ms",
+    "emoji": "🇲🇾",
+    "emoji_unicode": "U+1F1F2 U+1F1FE",
+    "title": "Malay",
+    "title_native": "Bahasa Melayu"
+  },
+  "mt": {
+    "_id": "mt",
+    "code": "mt",
+    "emoji": "🇲🇹",
+    "emoji_unicode": "U+1F1F2 U+1F1F9",
+    "title": "Maltese",
+    "title_native": "bil-Malti"
+  },
+  "my": {
+    "_id": "my",
+    "code": "my",
+    "emoji": "🇲🇲",
+    "emoji_unicode": "U+1F1F2 U+1F1F2",
+    "title": "Burmese",
+    "title_native": "မြန်မာစာ"
+  },
+  "na": {
+    "_id": "na",
+    "code": "na",
+    "emoji": "🇳🇷",
+    "emoji_unicode": "U+1F1F3 U+1F1F7",
+    "title": "Nauruan",
+    "title_native": "Dorerin Naoero"
+  },
+  "nb": {
+    "_id": "nb",
+    "code": "nb",
+    "emoji": "🇳🇴",
+    "emoji_unicode": "U+1F1F3 U+1F1F4",
+    "title": "Norwegian Bokmål",
+    "title_native": "Norsk bokmål"
+  },
+  "nd": {
+    "_id": "nd",
+    "code": "nd",
+    "emoji": "🇿🇼",
+    "emoji_unicode": "U+1F1FF U+1F1FC",
+    "title": "North Ndebele",
+    "title_native": "Sindebele"
+  },
+  "ne": {
+    "_id": "ne",
+    "code": "ne",
+    "emoji": "🇳🇵",
+    "emoji_unicode": "U+1F1F3 U+1F1F5",
+    "title": "Nepali",
+    "title_native": "नेपाली"
+  },
+  "nl": {
+    "_id": "nl",
+    "code": "nl",
+    "emoji": "🇳🇱",
+    "emoji_unicode": "U+1F1F3 U+1F1F1",
+    "title": "Dutch",
+    "title_native": "Nederlands"
+  },
+  "nn": {
+    "_id": "nn",
+    "code": "nn",
+    "emoji": "🇳🇴",
+    "emoji_unicode": "U+1F1F3 U+1F1F4",
+    "title": "Norwegian Nynorsk",
+    "title_native": "Norsk nynorsk"
+  },
+  "no": {
+    "_id": "no",
+    "code": "no",
+    "emoji": "🇳🇴",
+    "emoji_unicode": "U+1F1F3 U+1F1F4",
+    "title": "Norwegian",
+    "title_native": "Norsk"
+  },
+  "nr": {
+    "_id": "nr",
+    "code": "nr",
+    "emoji": "🇿🇦",
+    "emoji_unicode": "U+1F1FF U+1F1E6",
+    "title": "South Ndebele",
+    "title_native": "isiNdebele"
+  },
+  "ny": {
+    "_id": "ny",
+    "code": "ny",
+    "emoji": "🇲🇼",
+    "emoji_unicode": "U+1F1F2 U+1F1FC",
+    "title": "Chichewa",
+    "title_native": "Chi-Chewa"
+  },
+  "oc": {
+    "_id": "oc",
+    "code": "oc",
+    "emoji": "🇫🇷",
+    "emoji_unicode": "U+1F1EB U+1F1F7",
+    "title": "Occitan",
+    "title_native": "Occitan"
+  },
+  "pa": {
+    "_id": "pa",
+    "code": "pa",
+    "emoji": "🇮🇳",
+    "emoji_unicode": "U+1F1EE U+1F1F3",
+    "title": "Panjabi / Punjabi",
+    "title_native": "ਪੰਜਾਬੀ / पंजाबी / پنجابي"
+  },
+  "pl": {
+    "_id": "pl",
+    "code": "pl",
+    "emoji": "🇵🇱",
+    "emoji_unicode": "U+1F1F5 U+1F1F1",
+    "title": "Polish",
+    "title_native": "Polski"
+  },
+  "ps": {
+    "_id": "ps",
+    "code": "ps",
+    "emoji": "🇦🇫",
+    "emoji_unicode": "U+1F1E6 U+1F1EB",
+    "title": "Pashto",
+    "title_native": "پښتو"
+  },
+  "pt": {
+    "_id": "pt",
+    "code": "pt",
+    "emoji": "🇧🇷",
+    "emoji_unicode": "U+1F1E7 U+1F1F7",
+    "title": "Portuguese",
+    "title_native": "Português"
+  },
+  "qu": {
+    "_id": "qu",
+    "code": "qu",
+    "emoji": "🇵🇪",
+    "emoji_unicode": "U+1F1F5 U+1F1EA",
+    "title": "Quechua",
+    "title_native": "Runa Simi"
+  },
+  "rn": {
+    "_id": "rn",
+    "code": "rn",
+    "emoji": "🇧🇮",
+    "emoji_unicode": "U+1F1E7 U+1F1EE",
+    "title": "Kirundi",
+    "title_native": "Kirundi"
+  },
+  "ro": {
+    "_id": "ro",
+    "code": "ro",
+    "emoji": "🇷🇴",
+    "emoji_unicode": "U+1F1F7 U+1F1F4",
+    "title": "Romanian",
+    "title_native": "Română"
+  },
+  "ru": {
+    "_id": "ru",
+    "code": "ru",
+    "emoji": "🇷🇺",
+    "emoji_unicode": "U+1F1F7 U+1F1FA",
+    "title": "Russian",
+    "title_native": "Русский"
+  },
+  "rw": {
+    "_id": "rw",
+    "code": "rw",
+    "emoji": "🇷🇼",
+    "emoji_unicode": "U+1F1F7 U+1F1FC",
+    "title": "Rwandi",
+    "title_native": "Kinyarwandi"
+  },
+  "sg": {
+    "_id": "sg",
+    "code": "sg",
+    "emoji": "🇨🇫",
+    "emoji_unicode": "U+1F1E8 U+1F1EB",
+    "title": "Sango",
+    "title_native": "Sängö"
+  },
+  "si": {
+    "_id": "si",
+    "code": "si",
+    "emoji": "🇱🇰",
+    "emoji_unicode": "U+1F1F1 U+1F1F0",
+    "title": "Sinhalese",
+    "title_native": "සිංහල"
+  },
+  "sk": {
+    "_id": "sk",
+    "code": "sk",
+    "emoji": "🇸🇰",
+    "emoji_unicode": "U+1F1F8 U+1F1F0",
+    "title": "Slovak",
+    "title_native": "Slovenčina"
+  },
+  "sl": {
+    "_id": "sl",
+    "code": "sl",
+    "emoji": "🇸🇮",
+    "emoji_unicode": "U+1F1F8 U+1F1EE",
+    "title": "Slovenian",
+    "title_native": "Slovenščina"
+  },
+  "sm": {
+    "_id": "sm",
+    "code": "sm",
+    "emoji": "🇼🇸",
+    "emoji_unicode": "U+1F1FC U+1F1F8",
+    "title": "Samoan",
+    "title_native": "Gagana Samoa"
+  },
+  "sn": {
+    "_id": "sn",
+    "code": "sn",
+    "emoji": "🇿🇼",
+    "emoji_unicode": "U+1F1FF U+1F1FC",
+    "title": "Shona",
+    "title_native": "chiShona"
+  },
+  "so": {
+    "_id": "so",
+    "code": "so",
+    "emoji": "🇸🇴",
+    "emoji_unicode": "U+1F1F8 U+1F1F4",
+    "title": "Somalia",
+    "title_native": "Soomaaliga"
+  },
+  "sq": {
+    "_id": "sq",
+    "code": "sq",
+    "emoji": "🇦🇱",
+    "emoji_unicode": "U+1F1E6 U+1F1F1",
+    "title": "Albanian",
+    "title_native": "Shqip"
+  },
+  "sr": {
+    "_id": "sr",
+    "code": "sr",
+    "emoji": "🇷🇸",
+    "emoji_unicode": "U+1F1F7 U+1F1F8",
+    "title": "Serbian",
+    "title_native": "Српски"
+  },
+  "ss": {
+    "_id": "ss",
+    "code": "ss",
+    "emoji": "🇿🇦",
+    "emoji_unicode": "U+1F1FF U+1F1E6",
+    "title": "Swati",
+    "title_native": "SiSwati"
+  },
+  "st": {
+    "_id": "st",
+    "code": "st",
+    "emoji": "🇿🇦",
+    "emoji_unicode": "U+1F1FF U+1F1E6",
+    "title": "Southern Sotho",
+    "title_native": "Sesotho"
+  },
+  "sv": {
+    "_id": "sv",
+    "code": "sv",
+    "emoji": "🇸🇪",
+    "emoji_unicode": "U+1F1F8 U+1F1EA",
+    "title": "Swedish",
+    "title_native": "Svenska"
+  },
+  "sw": {
+    "_id": "sw",
+    "code": "sw",
+    "emoji": "🇹🇿",
+    "emoji_unicode": "U+1F1F9 U+1F1FF",
+    "title": "Swahili",
+    "title_native": "Kiswahili"
+  },
+  "ta": {
+    "_id": "ta",
+    "code": "ta",
+    "emoji": "🇮🇳",
+    "emoji_unicode": "U+1F1EE U+1F1F3",
+    "title": "Tamil",
+    "title_native": "தமிழ்"
+  },
+  "tg": {
+    "_id": "tg",
+    "code": "tg",
+    "emoji": "🇹🇯",
+    "emoji_unicode": "U+1F1F9 U+1F1EF",
+    "title": "Tajik",
+    "title_native": "Тоҷикӣ"
+  },
+  "th": {
+    "_id": "th",
+    "code": "th",
+    "emoji": "🇹🇭",
+    "emoji_unicode": "U+1F1F9 U+1F1ED",
+    "title": "Thai",
+    "title_native": "ไทย / Phasa Thai"
+  },
+  "ti": {
+    "_id": "ti",
+    "code": "ti",
+    "emoji": "🇪🇹",
+    "emoji_unicode": "U+1F1EA U+1F1F9",
+    "title": "Tigrinya",
+    "title_native": "ትግርኛ"
+  },
+  "tk": {
+    "_id": "tk",
+    "code": "tk",
+    "emoji": "🇹🇲",
+    "emoji_unicode": "U+1F1F9 U+1F1F2",
+    "title": "Turkmen",
+    "title_native": "Туркмен / تركمن"
+  },
+  "tn": {
+    "_id": "tn",
+    "code": "tn",
+    "emoji": "🇿🇦",
+    "emoji_unicode": "U+1F1FF U+1F1E6",
+    "title": "Tswana",
+    "title_native": "Setswana"
+  },
+  "to": {
+    "_id": "to",
+    "code": "to",
+    "emoji": "🇹🇴",
+    "emoji_unicode": "U+1F1F9 U+1F1F4",
+    "title": "Tonga",
+    "title_native": "Lea Faka-Tonga"
+  },
+  "tr": {
+    "_id": "tr",
+    "code": "tr",
+    "emoji": "🇹🇷",
+    "emoji_unicode": "U+1F1F9 U+1F1F7",
+    "title": "Turkish",
+    "title_native": "Türkçe"
+  },
+  "ts": {
+    "_id": "ts",
+    "code": "ts",
+    "emoji": "🇿🇦",
+    "emoji_unicode": "U+1F1FF U+1F1E6",
+    "title": "Tsonga",
+    "title_native": "Xitsonga"
+  },
+  "uk": {
+    "_id": "uk",
+    "code": "uk",
+    "emoji": "🇺🇦",
+    "emoji_unicode": "U+1F1FA U+1F1E6",
+    "title": "Ukrainian",
+    "title_native": "Українська"
+  },
+  "ur": {
+    "_id": "ur",
+    "code": "ur",
+    "emoji": "🇵🇰",
+    "emoji_unicode": "U+1F1F5 U+1F1F0",
+    "title": "Urdu",
+    "title_native": "اردو"
+  },
+  "uz": {
+    "_id": "uz",
+    "code": "uz",
+    "emoji": "🇺🇿",
+    "emoji_unicode": "U+1F1FA U+1F1FF",
+    "title": "Uzbek",
+    "title_native": "Ўзбек"
+  },
+  "ve": {
+    "_id": "ve",
+    "code": "ve",
+    "emoji": "🇿🇦",
+    "emoji_unicode": "U+1F1FF U+1F1E6",
+    "title": "Venda",
+    "title_native": "Tshivenḓa"
+  },
+  "vi": {
+    "_id": "vi",
+    "code": "vi",
+    "emoji": "🇻🇳",
+    "emoji_unicode": "U+1F1FB U+1F1F3",
+    "title": "Vietnamese",
+    "title_native": "Tiếng Việt"
+  },
+  "xh": {
+    "_id": "xh",
+    "code": "xh",
+    "emoji": "🇿🇦",
+    "emoji_unicode": "U+1F1FF U+1F1E6",
+    "title": "Xhosa",
+    "title_native": "isiXhosa"
+  },
+  "zh": {
+    "_id": "zh",
+    "code": "zh",
+    "emoji": "🇨🇳",
+    "emoji_unicode": "U+1F1E8 U+1F1F3",
+    "title": "Chinese",
+    "title_native": "中文"
+  },
+  "zu": {
+    "_id": "zu",
+    "code": "zu",
+    "emoji": "🇿🇦",
+    "emoji_unicode": "U+1F1FF U+1F1E6",
+    "title": "Zulu",
+    "title_native": "isiZulu"
+  }
+}
