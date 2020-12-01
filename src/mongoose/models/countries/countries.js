@@ -62,8 +62,6 @@ model.estimatedDocumentCount(async (error, count) => {
     await model.create(docs);
   }
 });
-return model;
-}
 
 
 module.exports = model; // mongoose.model(name, schema);
