@@ -11,7 +11,9 @@ const schema = new Schema({
   // _id = code
   _id: { type: String, uppercase: true, trim: true, required: true, unique: true, },
   code: { type: String, uppercase: true, trim: true, required: true, unique: true, },
+
   title: { type: String, trim: true, },
+
   enabled: { type: Boolean, sparse: true, default: false, },
   visible: { type: Boolean, sparse: true, default: false, },
   serial_number: { type: Number, sparse: true, default: 1100000, },
