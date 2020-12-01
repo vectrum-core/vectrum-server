@@ -7,7 +7,7 @@ const schema = {
     level: {
       doc: 'Logger level',
       format: ['fatal', 'error', 'warn', 'info', 'debug', 'trace'],
-      default: isProd ? 'info' : 'trace',
+      default: 'info',
     },
     appenders: {
       stdout: {
