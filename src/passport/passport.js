@@ -1,6 +1,6 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
-const { JwtStrategy, ExtractJwt } = require('passport-jwt');
+const { ExtractJwt, Strategy: JwtStrategy } = require('passport-jwt');
 const mongoose = require('mongoose');
 const User = mongoose.model('users');
 const cfg = require('../config');
