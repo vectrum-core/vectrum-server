@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  vectrum_server:
+    image: vectrum/vectrum-server:latest
+    environment:
+      NODE_ENV: production
+      DATA_DIR: /data
+    #env_file: .env
+    volumes:
+      - ../data/vectrum-server/data:/data
+    ports:
+      - 80:80

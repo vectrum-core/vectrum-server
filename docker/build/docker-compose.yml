@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  vectrum_server:
+    build: 
+      context: ../../
+      dockerfile: ./docker/build/Dockerfile
+    environment:
+      NODE_ENV: production
+      DATA_DIR: /data
+    volumes:
+      - ../../data/vectrum-server/data:/data
+    ports:
+      - 80:80
