@@ -9,6 +9,7 @@ const password = require('./password');
 const mailer = require('./mailer');
 const domains = require('./domains');
 const jwt = require('./jwt');
+const vectrum = require('./vectrum');
 
 
 
@@ -25,6 +26,7 @@ const schema = Object.assign(
   mailer,
   domains,
   jwt,
+  vectrum,
 );
 
 module.exports = schema;
