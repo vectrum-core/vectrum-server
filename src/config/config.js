@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const convict = require('convict');
 const schema = require('./schema');
-const formats = require('./formats');
+const formats = require('./formats/formats');
 
 
 
