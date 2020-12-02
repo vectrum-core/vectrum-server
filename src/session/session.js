@@ -4,13 +4,16 @@ const { v4: uuidv4 } = require('uuid');
 const cfg = require('../config');
 
 
+
 module.exports = () => {
   return session({
-    store: sessionStore, // The session store instance, defaults to a new MemoryStore instance.
+    // The session store instance, defaults to a new MemoryStore instance.
+    store: sessionStore,
     genid: (req) => {
-      return uuidv4(); // use UUIDs for session IDs
+      return uuidv4();
     },
-    name: cfg.get('session.name'),//'connect.sid',
+    //'connect.sid',
+    name: cfg.get('session.name'),
     secret: cfg.get('session.secret'),
     resave: cfg.get('session.resave'),
     saveUninitialized: cfg.get('session.saveUninitialized'),

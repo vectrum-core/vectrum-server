@@ -1,4 +1,5 @@
 const crypto = require('crypto');
+const os = require('os');
 
 
 
@@ -7,6 +8,11 @@ const schema = {
     doc: 'session store secret',
     format: String,
     default: crypto.randomBytes(64).toString('hex'),
+  },
+  prefix: {
+    doc: 'session store prefix',
+    format: String,
+    default: os.hostname(),
   },
   algorithm: {
     doc: 'session store algorithm (Allows for changes to the default symmetric encryption cipher; default is GCM. See crypto.getCiphers() for supported algorithms.)',
