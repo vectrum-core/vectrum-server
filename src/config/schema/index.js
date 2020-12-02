@@ -10,6 +10,7 @@ const mailer = require('./mailer');
 const domains = require('./domains');
 const jwt = require('./jwt');
 const vectrum = require('./vectrum');
+const bot = require('./bot');
 
 
 
@@ -27,6 +28,7 @@ const schema = Object.assign(
   domains,
   jwt,
   vectrum,
+  bot,
 );
 
 module.exports = schema;
