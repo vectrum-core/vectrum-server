@@ -6,7 +6,7 @@ const store = require('./session-store');
 const schema = {
   session: {
     password: {
-      doc: 'session password',
+      doc: 'session password for connect to redis node',
       format: String,
       default: undefined,
     },

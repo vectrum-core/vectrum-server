@@ -18,4 +18,6 @@ module.exports = {
   tg_users: require('./tg-users'),
   tg_contacts: require('./tg-contacts'),
   phone_numbers: require('./phone-numbers'),
+
+  jwts: require('./jwts'),
 };
