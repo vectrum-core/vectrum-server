@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+const cfg = require('../src/config');
+const log = require('../src/logger').getLogger('VECTRUM-SERVER');
+const connectDb = require('../src/mongoose');
+const Server = require('../src/server');
+
+
+
+const env = cfg.get('env');
+log.info('The application launched in mode: "%s".', env);
+
+connectDb('VECTRUM-SERVER')
+  .then(async (mongoose = { connection }) => {
+    log.info('Connected to MongoDB.');
+
+    const timeout = 1;
+    setTimeout(async () => {
+      const server = new Server({
+        dbConnection: mongoose.connection,
+      });
+      server.start();
+    }, timeout);
+
+  }).catch((error) => {
+    log.error('Application launch failed! error:', error);
+    process.exit(1);
+  });
