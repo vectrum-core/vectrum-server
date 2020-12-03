@@ -16,18 +16,18 @@ const cfg = require('../config');
 
 
 const options = {
-  host: cfg.get('nodemailer.host'),
-  port: cfg.get('nodemailer.port'),
-  secure: cfg.get('nodemailer.secure'),
+  host: cfg.get('mailer.host'),
+  port: cfg.get('mailer.port'),
+  secure: cfg.get('mailer.secure'),
   auth: {
-    user: cfg.get('nodemailer.auth.user'),
-    pass: cfg.get('nodemailer.auth.pass'),
+    user: cfg.get('mailer.auth.user'),
+    pass: cfg.get('mailer.auth.pass'),
   },
   tls: {
     // do not fail on invalid certs
-    rejectUnauthorized: cfg.get('nodemailer.tls.rejectUnauthorized'),
+    rejectUnauthorized: cfg.get('mailer.tls.rejectUnauthorized'),
   },
-  attachDataUrls: cfg.get('nodemailer.attachDataUrls'),
+  attachDataUrls: cfg.get('mailer.attachDataUrls'),
   //logger: log,
   //debug: cfg.get('env') === 'production' ? false : true,
 };
