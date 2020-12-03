@@ -1,7 +1,6 @@
 const {
   keyboard, inlineKeyboard,
-  button, urlButton, callbackButton,
-  loginButton,
+  button, urlButton, callbackButton, loginButton,
 } = require('telegraf/markup');
 const { int_to_base58 } = require('base58');
 const urlapi = require('url');
