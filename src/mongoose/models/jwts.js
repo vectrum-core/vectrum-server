@@ -28,6 +28,10 @@ const schema = new Schema({
     required: true, sparse: true,
   },
 
+  audience: [{
+    type: String, lowercase: true, trim: true, sparse: true,
+  }],
+
   info: { type: Schema.Types.Mixed, },
 
   revoked: { type: Boolean, default: false, },
@@ -65,6 +69,10 @@ schema.virtual('notBefore')
   })
 
 //audience
+schema.virtual('aud')
+  .get(function (value, virtual, doc) {
+    return this.audience;
+  });
 
 // issued at
 schema.virtual('iat')
@@ -92,7 +100,7 @@ schema.methods.generateJWT = function () {
     algorithm: this.algorithm,
     expiresIn: this.expiresIn,
     notBefore: this.notBefore,
-    //audience: ['user'],
+    audience: this.audience,
     issuer: this.issuer,
     jwtid: this.jwtid,
     subject: this.subject,

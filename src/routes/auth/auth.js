@@ -12,7 +12,7 @@ const SS = require('../../lib').smartStringify;
 
 
 // https://core.telegram.org/widgets/login#receiving-authorization-data
-router.use('/tg',
+router.get('/tg',
   async (req, res, next) => {
     const logTrace = 'Method GET. /auth/tg';
     const preloadedReduxState = {};
@@ -44,14 +44,7 @@ router.use('/tg',
         ip: req.ip,
         useragent: req.useragent,
       };
-      const jwt = await user.generateJWT(info);
-
-      preloadedReduxState.profile = {
-        guid: user._id,
-        apiToken: jwt,
-        permissions: user.permissions || [],
-        authenticated: true,
-      };
+      preloadedReduxState.profile = await user.toAuthJSON(info);
 
       log.debug('%s Login by telegram successed!', logTrace, SS(req.query));
     } else
