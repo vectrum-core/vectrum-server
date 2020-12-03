@@ -4,6 +4,9 @@ const log = require('../logger').getLogger('MAILER:compile:saveMail');
 
 
 module.exports = (options = {}) => {
+  const defaulOptions = {};
+  const opts = { ...defaulOptions, ...options, };
+
   return async (mail, done) => {
     if (!mail || !mail.data)
       return done();
