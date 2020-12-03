@@ -54,7 +54,7 @@ router.get('/tg',
 
 router.post('/tg',
   async (req, res, next) => {
-    const logTrace = 'Method GET. /api/v1/auth/tg';
+    const logTrace = 'Method POST. /api/v1/auth/tg';
     const preloadedReduxState = {};
     const time = new Date().getTime();
 
