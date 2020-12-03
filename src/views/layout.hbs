@@ -18,7 +18,11 @@
 </head>
 
 <body>
-  {{{body}}}
+  <div id="root">{{{body}}}</div>
+  {{#if preloadedReduxState}}
+  {{> preloaded_redux_state}}
+  {{/if}}
+
 </body>
 
 </html>

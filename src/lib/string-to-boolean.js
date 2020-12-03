@@ -12,4 +12,7 @@ const stringToBoolean = (str) => {
   }
 }
 
-module.exports = stringToBoolean;
+
+module.exports = {
+  stringToBoolean,
+};

@@ -9,4 +9,7 @@ const smartStringify = (obj) => {
     return JSON.stringify(obj, null, 2);
 }
 
-module.exports = smartStringify;
+
+module.exports = {
+  smartStringify,
+};

@@ -43,7 +43,9 @@ schema.index({ 'expires_in': 1 }, { expireAfterSeconds: 0, sparse: true, });
 
 schema.virtual('expiresIn')
   .get(function (value, virtual, doc) {
-    return parseInt(this.expires_in.getTime() / 1000, 10);
+    if (this.expires_in)
+      return parseInt(this.expires_in.getTime() / 1000, 10);
+    return undefined;
   })
   .set(function (value, virtual, doc) {
     this.expires_in = new Date(value * 1000);
@@ -133,3 +135,77 @@ schema.plugin(
 module.exports = mongoose.model(name, schema);
 module.exports.name = name;
 module.exports.schema = schema;
+
+/*
+https://www.npmjs.com/package/express-useragent
+{
+  "sign_by": "secret",
+  "algorithm": "HS256",
+  "issuer": "http://localhost",
+  "revoked": false,
+  "not_expires": true,
+  "subject": "5fc867dac9c274f484a7e551",
+  "subject_model": "users",
+  "info": {
+      "time": 1606970295651,
+      "ip": "127.0.0.1",
+      "useragent": {
+          "isYaBrowser": false,
+          "isAuthoritative": true,
+          "isMobile": false,
+          "isMobileNative": false,
+          "isTablet": false,
+          "isiPad": false,
+          "isiPod": false,
+          "isiPhone": false,
+          "isiPhoneNative": false,
+          "isAndroid": false,
+          "isAndroidNative": false,
+          "isBlackberry": false,
+          "isOpera": false,
+          "isIE": false,
+          "isEdge": false,
+          "isIECompatibilityMode": false,
+          "isSafari": false,
+          "isFirefox": false,
+          "isWebkit": false,
+          "isChrome": true,
+          "isKonqueror": false,
+          "isOmniWeb": false,
+          "isSeaMonkey": false,
+          "isFlock": false,
+          "isAmaya": false,
+          "isPhantomJS": false,
+          "isEpiphany": false,
+          "isDesktop": true,
+          "isWindows": false,
+          "isLinux": false,
+          "isLinux64": false,
+          "isMac": true,
+          "isChromeOS": false,
+          "isBada": false,
+          "isSamsung": false,
+          "isRaspberry": false,
+          "isBot": false,
+          "isCurl": false,
+          "isAndroidTablet": false,
+          "isWinJs": false,
+          "isKindleFire": false,
+          "isSilk": false,
+          "isCaptive": false,
+          "isSmartTV": false,
+          "isUC": false,
+          "isFacebook": false,
+          "isAlamoFire": false,
+          "isElectron": false,
+          "silkAccelerated": false,
+          "browser": "Chrome",
+          "version": "86.0.4240.80",
+          "os": "OS X",
+          "platform": "Apple Mac",
+          "source": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.80 Safari/537.36",
+          "isWechat": false
+      }
+  }
+}
+*/
