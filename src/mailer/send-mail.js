@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Mail = mongoose.model('mails');
 const transporter = require('./transporter');
 const i18nextConfig = require('../i18n/i18next-config');
+const cfg = require('../config');
 const log = require('../logger').getLogger('MAILER:transporter:sendMail');
 
 
