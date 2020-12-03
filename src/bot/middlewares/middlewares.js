@@ -2,6 +2,7 @@ const sessionOnMemory = require('telegraf/session');
 const mongoose = require('mongoose');
 const User = mongoose.model('users');
 const TGUser = mongoose.model('tg_users');
+const db = require('../db');
 const i18n = require('../i18n');
 const stage = require('../stage');
 const getExtra = require('../extra');
@@ -55,12 +56,8 @@ const applyMiddlewares = (bot) => {
       switch (ctx.updateType) {
         case 'message': {
           if (ctx.message.text === i18n.t('I totally agree')) { // согласие получено
-            const doc = await User.findOneAndUpdate(
-              { tg_user: ctx.from.id },
-              { 'status.agreed': true, },
-              { new: true, }
-            ).populate('tg_user');
-            session.user = doc.toJSON();
+            session.user.status.agreed = true;
+            await session.user.save();
             return sendGreetingHandler(ctx);
           }
           // любое другое текстовое сообщение
@@ -80,23 +77,28 @@ module.exports = applyMiddlewares;
 
 async function updateUser(ctx) {
   const { session } = ctx;
+  const time = new Date().getTime();
 
   // Обновление данных или создание нового телегам пользователя
-  const tg_user = await TGUser.findOneAndUpdate(
-    { id: ctx.from.id },
-    Object.assign({}, ctx.from, { last_active_at: new Date().getTime(), }),
-    { new: true, upsert: true, }
-  );
+  let tgUser = await db.getTGUserById(ctx.from.id);
+  if (tgUser === null) {
+    tgUser = await db.createTGUser(ctx.from);
+  } else {
+    tgUser.last_active_at = time;
+    await tgUser.save();
+  }
 
   // Если пользователь в сессии отсутствует
   if (session.user === undefined) {
     // Получение записи пользователя из БД или создание нового пользователя
-    let doc = await User.findOneAndUpdate(
-      { tg_user: ctx.from.id },
-      { last_active_at: new Date().getTime(), },
-      { new: true, upsert: true, }
-    ).populate('tg_user');
-    session.user = doc.toJSON();
+    let user = await db.getUserByTgUserId(ctx.from.id);
+    if (user === null) {
+      user = await db.createUserByTgUserId(ctx.from.id);
+    } else {
+      user.last_active_at = time;
+      await user.save();
+    }
+    session.user = user;
 
     // Установка значений по умолчанию и обновление.
     await setDefaultsForNewUser(ctx);
@@ -110,7 +112,7 @@ async function updateUser(ctx) {
             Object.assign({}, data),
             { upsert: true, }
           );
-        else if (session.user.photo.tg_user.small_file_unique_id !== data.photo.tg_user.small_file_unique_id)
+        else if (session.user.tg_user.photo.small_file_unique_id !== data.photo.small_file_unique_id)
           await TGUser.findOneAndUpdate(
             { id: ctx.from.id },
             Object.assign({}, data),
@@ -122,12 +124,8 @@ async function updateUser(ctx) {
       });
   } else {
     // Если есть в сессии, то обновляем дату и загружаем свежие данные
-    let doc = await User.findOneAndUpdate(
-      { tg_user: ctx.from.id },
-      { last_active_at: new Date().getTime(), },
-      { new: true, upsert: true, }
-    ).populate('tg_user');
-    session.user = doc.toJSON();
+    session.user.last_active_at = time;
+    await session.user.save();
   }
 }
 
@@ -135,21 +133,14 @@ async function updateUser(ctx) {
 async function setDefaultsForNewUser(ctx) {
   const { session, i18n, } = ctx;
   let update = false;
-  const updates = {};
 
   if (session.user.language === undefined) {
     session.user.language = i18n.locale();
-    updates.language = i18n.locale();
     update = true;
   } else
     i18n.locale(session.user.language);
 
   if (update) {
-    let doc = await User.findOneAndUpdate(
-      { tg_user: ctx.from.id },
-      updates,
-      { new: true, upsert: true, }
-    ).populate('tg_user');
-    session.user = doc.toJSON();
+    await session.user.save();
   }
 }
