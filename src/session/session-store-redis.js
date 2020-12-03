@@ -23,7 +23,7 @@ module.exports = (session) => {
     // Key prefix in Redis(default: sess:). This prefix appends to whatever prefix you may have set on the client itself.
     prefix: cfg.get('session.store.prefix'),
     // If the session cookie has a expires date, connect - redis will use it as the TTL. Otherwise, it will expire the session using the ttl option(default: 86400 seconds or one day).
-    ttl: 86400,
+    ttl: cfg.get('session.store.ttl'),
     // Disables re-saving and resetting the TTL when using touch (default: false)
     disableTouch: false,
     // The encoder/decoder to use when storing and retrieving session data from Redis (default: JSON).

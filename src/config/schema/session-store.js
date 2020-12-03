@@ -47,7 +47,7 @@ const schema = {
   ttl: {
     doc: "session ttl",
     format: Number,
-    default: 10 * 60, // (default: 86400 seconds or one day)
+    default: 86400, // (default: 86400 seconds or one day)
   },
 };
 
