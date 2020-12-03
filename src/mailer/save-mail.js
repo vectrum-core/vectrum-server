@@ -3,6 +3,7 @@ const Mail = mongoose.model('mails');
 const log = require('../logger').getLogger('MAILER:compile:saveMail');
 
 
+
 module.exports = (options = {}) => {
   const defaulOptions = {};
   const opts = { ...defaulOptions, ...options, };
@@ -14,7 +15,7 @@ module.exports = (options = {}) => {
     if (mail.data.notSave)
       return done();
 
-    const doc = new Mails(mail.data);
+    const doc = new Mail(mail.data);
     await doc.save();
     mail.data = doc.toObject();
 
