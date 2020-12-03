@@ -10,7 +10,7 @@ async function getUserByTgUserId(tgUserId) {
   return new Promise(async (resolve, reject) => {
     const projection = { password: false };
     try {
-      const doc = await User.findOne({ tg_user: tgUserId }, projection).populate('tg_user');
+      const doc = await User.findOne({ tg_user: tgUserId }, projection);
       log.trace('%s Result:', logTrace, SS(doc));
       return resolve(doc);
     } catch (error) {

@@ -82,10 +82,13 @@ async function updateUser(ctx) {
   let tgUser = await db.getTGUserById(ctx.from.id);
   if (tgUser === null) {
     tgUser = await db.createTGUser(ctx.from);
-  } else {
-    tgUser.last_active_at = time;
-    await tgUser.save();
   }
+  tgUser = await TGUser.findOneAndUpdate(
+    { id: ctx.from.id },
+    Object.assign({}, ctx.from, { last_active_at: time }),
+    { new: true, runValidators: true, }
+  );
+  session.tgUser = tgUser;
 
   // Если пользователь в сессии отсутствует
   if (session.user === undefined) {
@@ -106,16 +109,16 @@ async function updateUser(ctx) {
     ctx.getChat()
       .then(async (data) => {
         if (!session.user || !session.user.tg_user || !session.user.tg_user.photo)
-          await TGUser.findOneAndUpdate(
+          session.tgUser = await TGUser.findOneAndUpdate(
             { id: ctx.from.id },
             Object.assign({}, data),
-            { upsert: true, }
+            { new: true, runValidators: true, }
           );
         else if (session.user.tg_user.photo.small_file_unique_id !== data.photo.small_file_unique_id)
-          await TGUser.findOneAndUpdate(
+          session.tgUser = await TGUser.findOneAndUpdate(
             { id: ctx.from.id },
             Object.assign({}, data),
-            { upsert: true, }
+            { new: true, runValidators: true, }
           );
       })
       .catch((error) => {
