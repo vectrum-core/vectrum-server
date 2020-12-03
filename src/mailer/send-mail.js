@@ -32,6 +32,8 @@ module.exports = (mailOptions = {}) => {
         { new: true, }
       );
 
+      log.info('Sended mail to %s, id: %s', options.to.address, messageId);
+
       return resolve(doc);
     } catch (error) {
       log.error('Error:', error);
