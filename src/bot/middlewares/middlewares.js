@@ -96,15 +96,6 @@ async function updateUser(ctx) {
       { last_active_at: new Date().getTime(), },
       { new: true, upsert: true, }
     ).populate('tg_user');
-    // Если пользователь не привязан к телегам пользователю,
-    // то создание нового пользователя. Пользователь телеграм создан выше.
-    if (doc === null) {
-      doc = await User.findOneAndUpdate(
-        { tg_user: ctx.from.id },
-        Object.assign({}, { tg_user: tg_user, last_active_at: new Date().getTime(), }),
-        { new: true, upsert: true, }
-      );
-    }
     session.user = doc.toJSON();
 
     // Установка значений по умолчанию и обновление.
