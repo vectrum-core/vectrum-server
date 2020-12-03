@@ -53,7 +53,7 @@ This telegram bot is a part of <a href="{{company_url}}">{{company_name}}</a>!
 const hbsMsgGreetingRU = `
 <b>Приветствую, {{user_first_name}}!</b>
 
-Это телеграм бот часть <a href="{{company_url}}">{{company_name}}</a>!
+Этот телеграм бот часть <a href="{{company_url}}">{{company_name}}</a>!
 `;
 const msgGreeting = (ctx) => {
   const { i18n } = ctx;

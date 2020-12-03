@@ -3,6 +3,7 @@ const cfg = require('../src/config');
 const log = require('../src/logger').getLogger('VECTRUM-SERVER');
 const connectDb = require('../src/mongoose');
 const Server = require('../src/server');
+const Bot = require('../src/bot');
 
 
 
@@ -15,8 +16,11 @@ connectDb('VECTRUM-SERVER')
 
     const timeout = 1;
     setTimeout(async () => {
+      const bot = Bot()
+      bot.launch();
       const server = new Server({
         dbConnection: mongoose.connection,
+        bot,
       });
       server.start();
     }, timeout);

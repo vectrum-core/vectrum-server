@@ -44,6 +44,11 @@ const schema = {
     format: Number,
     default: 16,
   },
+  ttl: {
+    doc: "session ttl",
+    format: Number,
+    default: 10 * 60, // (default: 86400 seconds or one day)
+  },
 };
 
 module.exports = schema;

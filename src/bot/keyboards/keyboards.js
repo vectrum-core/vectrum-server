@@ -83,8 +83,7 @@ const ikbMenuShortInfo = (ctx) => {
   const { i18n } = ctx;
   const kbArray = [];
 
-  const LoginUrl = {
-    url: cfg.get('domains.root') + '/auth/tg',
+  const opts = {
     forward_text: 'forward_text',
     bot_username: cfg.get('bot.username'),
     request_write_access: true,
@@ -93,7 +92,8 @@ const ikbMenuShortInfo = (ctx) => {
   kbArray.push([
     loginButton(
       'Авторизоваться на ' + cfg.get('domains.root'),
-      LoginUrl
+      cfg.get('domains.root') + '/auth/tg',
+      opts
     )
   ]);
 

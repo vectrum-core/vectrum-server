@@ -144,9 +144,11 @@ async function updateUser(ctx) {
 async function setDefaultsForNewUser(ctx) {
   const { session, i18n, } = ctx;
   let update = false;
+  const updates = {};
 
   if (session.user.language === undefined) {
     session.user.language = i18n.locale();
+    updates.language = i18n.locale();
     update = true;
   } else
     i18n.locale(session.user.language);
@@ -154,7 +156,7 @@ async function setDefaultsForNewUser(ctx) {
   if (update) {
     let doc = await User.findOneAndUpdate(
       { tg_user: ctx.from.id },
-      Object.assign({}, session.user),
+      updates,
       { new: true, upsert: true, }
     ).populate('tg_user');
     session.user = doc.toJSON();
