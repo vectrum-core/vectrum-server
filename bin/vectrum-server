@@ -4,6 +4,7 @@ const log = require('../src/logger').getLogger('VECTRUM-SERVER');
 const connectDb = require('../src/mongoose');
 const Server = require('../src/server');
 const Bot = require('../src/bot');
+const Mailer = require('../src/mailer');
 
 
 
@@ -16,13 +17,15 @@ connectDb('VECTRUM-SERVER')
 
     const timeout = 1;
     setTimeout(async () => {
-      const bot = Bot()
-      bot.launch();
+      const bot = Bot();
+      const mailer = Mailer();
       const server = new Server({
         dbConnection: mongoose.connection,
         bot,
+        mailer,
       });
       server.start();
+      bot.launch();
     }, timeout);
 
   }).catch((error) => {
