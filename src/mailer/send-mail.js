@@ -29,11 +29,11 @@ module.exports = (mailOptions = {}) => {
 
       const messageId = info.messageId;
       const doc = await Mail.findOneAndUpdate({ messageId },
-        { ...options, messageId, info },
+        { messageId, info, },
         { new: true, }
       );
 
-      log.info('Sended mail to %s, id: %s', options.to.address, messageId);
+      log.info('Sended mail to %s, id: %s', JSON.stringify(options.to), messageId);
 
       return resolve(doc);
     } catch (error) {

@@ -2,7 +2,7 @@ module.exports = (options = {}) => {
   const { i18n } = options;
 
   return async (mail, done) => {
-    if (!mail || mail.data || mail.data.context || mail.data.context.language) {
+    if (!mail || !mail.data || !mail.data.context) {
       return done();
     }
 

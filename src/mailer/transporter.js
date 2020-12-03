@@ -38,7 +38,7 @@ const transporter = nodemailer.createTransport(options, defaults);
 transporter.verify((error, success) => {
   if (error)
     return log.error('Server is not ready to take our messages. Error:', error);
-  return log.debug('Server is ready to take our messages.', success);
+  return log.info('Mail Server is ready to take our messages.', success);
 });
 
 
