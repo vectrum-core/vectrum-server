@@ -10,8 +10,8 @@ const saveMail = require('./save-mail');
 const i18nPrepare = require('./i18n-prepare');
 const fixBaseUrlInHtml = require('./fix-base-url-in-html');
 const i18n = require('../i18n')();
-const log = require('../logger').getLogger('MAILER:transporter');
 const cfg = require('../config');
+const log = require('../logger').getLogger('MAILER:transporter');
 
 
 
