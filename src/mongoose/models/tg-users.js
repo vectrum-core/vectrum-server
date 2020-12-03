@@ -27,6 +27,9 @@ const schema = new Schema({
     big_file_unique_id: { type: String, trim: true, },
   },
   //photos: [{}], //  ref: 'tg_photos',
+  photo_url: { type: String, trim: true, },
+
+  last_active_at: { type: Date, default: Date.now, },
 }, {
   timestamps: { createdAt: 'created_at', updatedAt: 'updated_at', },
 });
