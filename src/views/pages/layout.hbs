@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+
+<head>
+  <meta charset="utf-8" />
+  <title>{{title}}</title>
+  <meta name="description" content="{{description}}" />
+  <style>
+    body {
+      padding: 50px;
+      font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    }
+
+    a {
+      color: #00B7FF;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root">{{{body}}}</div>
+  {{#if preloadedReduxState}}
+  {{> preloaded_redux_state}}
+  {{/if}}
+
+</body>
+
+</html>
