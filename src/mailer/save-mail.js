@@ -3,18 +3,18 @@ const Mail = mongoose.model('mails');
 const log = require('../logger').getLogger('MAILER:compile:saveMail');
 
 
+module.exports = (options = {}) => {
+  return async (mail, done) => {
+    if (!mail || !mail.data)
+      return done();
 
-module.exports = async (mail, done) => {
-  if (!mail || !mail.data)
+    if (mail.data.notSave)
+      return done();
+
+    const doc = new Mails(mail.data);
+    await doc.save();
+    mail.data = doc.toObject();
+
     return done();
-
-  if (mail.data.notSave)
-    return done();
-
-  const doc = new Mails(mail.data);
-  await doc.save();
-  mail.data = doc.toObject();
-
-  return done();
-};
-
+  };
+}
