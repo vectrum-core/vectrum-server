@@ -17,7 +17,7 @@ connectDb('VECTRUM-SERVER')
     const timeout = 1;
     setTimeout(async () => {
       const bot = Bot()
-      bot.launch();
+      //bot.launch();
       const server = new Server({
         dbConnection: mongoose.connection,
         bot,

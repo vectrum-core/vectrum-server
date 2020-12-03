@@ -1,8 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
-const User = mongoose.model('users');
-const TGUser = mongoose.model('tg_users');
 const db = require('../../db');
 const { checkTelegramAuthData } = require('../../lib');
 const cfg = require('../../config');
