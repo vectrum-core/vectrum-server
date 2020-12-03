@@ -1,6 +1,5 @@
 const sessionOnMemory = require('telegraf/session');
 const mongoose = require('mongoose');
-const User = mongoose.model('users');
 const TGUser = mongoose.model('tg_users');
 const db = require('../db');
 const i18n = require('../i18n');
