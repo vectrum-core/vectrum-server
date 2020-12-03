@@ -6,7 +6,7 @@ const i18n = require('../i18n');
 const stage = require('../stage');
 const getExtra = require('../extra');
 const { kbStart } = require('../keyboards');
-const { sendAgreeIsExpectedHandler, cmdStartHandler } = require('../handlers/lib');
+const { sendAgreeIsExpectedHandler, sendGreetingHandler } = require('../handlers/lib');
 
 
 
@@ -61,7 +61,7 @@ const applyMiddlewares = (bot) => {
               { new: true, }
             ).populate('tg_user');
             session.user = doc.toJSON();
-            return cmdStartHandler(ctx);
+            return sendGreetingHandler(ctx);
           }
           // любое другое текстовое сообщение
         }
