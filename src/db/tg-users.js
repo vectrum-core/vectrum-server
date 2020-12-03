@@ -25,7 +25,7 @@ async function createTGUser(tgUser) {
   const logTrace = 'createTGUser()).';
   return new Promise(async (resolve, reject) => {
     try {
-      const doc = new TGUser({ tgUser });
+      const doc = new TGUser({ ...tgUser });
       await doc.save();
       log.trace('%s Result:', logTrace, SS(doc));
       return resolve(doc);
