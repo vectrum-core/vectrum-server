@@ -65,7 +65,7 @@ const msgGreeting = (ctx) => {
   const template = Handlebars.compile(hbsText);
   const user_first_name = ctx.from.first_name;
   const company_name = 'VECTRUM';
-  const company_url = 'https://vectrum.group/';
+  const company_url = cfg.get('domains.root') + '/';
   return template({
     user_first_name,
     company_name, company_url,
