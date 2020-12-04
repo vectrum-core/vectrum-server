@@ -1,17 +1,17 @@
 const path = require('path');
 const nodemailer = require('nodemailer');
-const Handlebars = require('handlebars');
-const hbs = require('./template-generator');
 const { htmlToText } = require('nodemailer-html-to-text');
 const inlineBase64 = require('nodemailer-plugin-inline-base64');
-const minifyHtml = require('./minify-html');
-const minifyText = require('./minify-text');
-const saveMail = require('./save-mail');
-const i18nPrepare = require('./i18n-prepare');
-const fixBaseUrlInHtml = require('./fix-base-url-in-html');
-const i18n = require('../i18n')();
+const Handlebars = require('handlebars');
+const hbs = require('./plugins/template-generator');
+const minifyHtml = require('./plugins/minify-html');
+const minifyText = require('./plugins/minify-text');
+const saveMail = require('./plugins/save-mail');
+const i18nPrepare = require('./plugins/i18n-prepare');
+const fixBaseUrlInHtml = require('./plugins/fix-base-url-in-html');
 const cfg = require('../config');
 const log = require('../logger').getLogger('MAILER:transporter');
+const i18n = require('./i18n')();
 
 
 
@@ -37,8 +37,8 @@ const transporter = nodemailer.createTransport(options, defaults);
 
 transporter.verify((error, success) => {
   if (error)
-    return log.error('Server is not ready to take our messages. Error:', error);
-  return log.info('Mail Server is ready to take our messages.', success);
+    return log.error('Mail Server (%s) is not ready to take our messages. Error:', cfg.get('mailer.host'), error);
+  return log.info('Mail Server (%s) is ready to take our messages.', cfg.get('mailer.host'));
 });
 
 
@@ -57,13 +57,13 @@ const hbsViewEngine = {
   extname: '.hbs',
   encoding: 'utf8',
   defaultLayout: 'layout',
-  layoutsDir: path.resolve(__dirname, '../views/mails/layouts'),
-  partialsDir: path.resolve(__dirname, '../views/mails/partials'),
+  layoutsDir: path.resolve(__dirname, './views/layouts'),
+  partialsDir: path.resolve(__dirname, './views/partials'),
   helpers: hbsHelpers,
 };
 const hbsOptions = {
   viewEngine: hbsViewEngine,
-  viewPath: path.resolve(__dirname, '../views/mails'),
+  viewPath: path.resolve(__dirname, './views'),
   extName: '.hbs',
 };
 transporter.use('compile', hbs(hbsOptions));
