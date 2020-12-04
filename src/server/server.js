@@ -3,14 +3,14 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 const cfg = require('../config');
-const log = require('../logger');
-const app = require('../app');
+const logger = require('../logger');
+const app = require('./app');
 
 
 
 class Server {
   constructor(params = { connection, dbs }) {
-    this.logger = log.getLogger('SERVER');
+    this.log = logger.getLogger('SERVER');
     this.app = null;
     this.http_server = null;
     this.https_server = null;
@@ -28,7 +28,7 @@ class Server {
   initServer() {
     // Create HTTP / HTTPS server.
     if (cfg.get('server.secure_mode')) {
-      this.logger.debug('secure mode');
+      this.log.debug('secure mode');
       this.http_server = http.createServer(this.app);
       this.http_server.on('error', onError('http-server'));
       this.http_server.on('listening', onListening('http-server'));
@@ -38,20 +38,20 @@ class Server {
         cfg.get('server.https.pfx') !== undefined
         && cfg.get('server.https.pass') !== undefined
       ) {
-        this.logger.debug('pfx & passphrase defined');
+        this.log.debug('pfx & passphrase defined');
         httpsOptions.pfx = getFile(cfg.get('server.https.pfx'));
         httpsOptions.passphrase = cfg.get('server.https.pass');
       } else if (
         cfg.get('server.https.key') !== undefined
         && cfg.get('server.https.cert') !== undefined
       ) {
-        this.logger.debug('key & cert defined');
+        this.log.debug('key & cert defined');
         httpsOptions.key = getFile(cfg.get('server.https.key'));
         httpsOptions.cert = getFile(cfg.get('server.https.cert'));
         if (cfg.get('server.https.ca') !== undefined)
           httpsOptions.ca = getFile(cfg.get('server.https.ca'));
       } else {
-        this.logger.fatal('HTTPS (TLS/SSL) Server Launch Error '
+        this.log.fatal('HTTPS (TLS/SSL) Server Launch Error '
           + '(pfx & passphrase and key & cert undefined)');
         return process.exit(1);
       }
@@ -59,7 +59,7 @@ class Server {
       this.https_server.on('error', onError('HTTPS'));
       this.https_server.on('listening', onListening('HTTPS'));
     } else {
-      this.logger.debug('unsecure mode');
+      this.log.debug('unsecure mode');
       this.http_server = http.createServer(this.app);
       this.http_server.on('error', onError('HTTP'));
       this.http_server.on('listening', onListening('HTTP'));
@@ -98,7 +98,7 @@ class Server {
     if (cfg.get('server.secure_mode')) {
       this.https_server.close();
     }
-    this.logger.debug('server stopped');
+    this.log.debug('server stopped');
   }
 
   restart() {
@@ -110,10 +110,10 @@ class Server {
 
 // Event listener for HTTP server 'error' event.
 function onError(loggerName = '') {
-  const logger = log.getLogger('SERVER:' + loggerName);
+  const log = logger.getLogger('SERVER:' + loggerName);
   return function (error) {
     if (error.syscall !== 'listen') {
-      logger.fatal('Error:', error);
+      log.fatal('Error:', error);
       throw error;
     }
 
@@ -125,13 +125,13 @@ function onError(loggerName = '') {
     // handle specific listen errors with friendly messages
     switch (error.code) {
       case 'EACCES':
-        logger.fatal(bind + ' requires elevated privileges.');
+        log.fatal(bind + ' requires elevated privileges.');
         return process.exit(1);
       case 'EADDRINUSE':
-        logger.fatal(bind + ' is already in use.');
+        log.fatal(bind + ' is already in use.');
         return process.exit(1);
       default:
-        logger.fatal('Error:', error);
+        log.fatal('Error:', error);
         throw error;
     }
   }
@@ -139,21 +139,21 @@ function onError(loggerName = '') {
 
 // Event listener for HTTP server 'listening' event.
 function onListening(loggerName = '') {
-  const logger = log.getLogger('SERVER:' + loggerName);
+  const log = logger.getLogger('SERVER:' + loggerName);
   return function () {
     const addr = this.address();
     const bind = typeof addr === 'string'
       ? 'pipe ' + addr
       : 'port ' + addr.port;
-    logger.debug('Listening on ' + bind);
+    log.debug('Listening on ' + bind);
   }
 }
 
 function getFile(fileName) {
-  const logger = log.getLogger('SERVER:READ FILE');
+  const log = logger.getLogger('SERVER:READ FILE');
   const fullPath = path.resolve(__dirname, cfg.get('data.dir'), fileName);
   if (!fs.existsSync(fullPath)) {
-    logger.fatal(`File '${fileName}' not exists in path '${fullPath}'.`);
+    log.fatal(`File '${fileName}' not exists in path '${fullPath}'.`);
     return process.exit(1);
   }
   return fs.readFileSync(fullPath);
