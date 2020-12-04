@@ -1,28 +1,29 @@
+// https://nodemailer.com/
 const schema = {
-  nodemailer: {
+  mailer: {
     host: {
       doc: 'The IP address/host to connect to smtp server.',
       format: '*',
       default: '127.0.0.1',
     },
     port: {
-      doc: 'smtp port.',
+      doc: 'mailer smtp port.',
       format: 'port',
       default: 25,
     },
     secure: {
-      doc: 'nodemailer secure',
+      doc: 'mailer secure.',
       format: Boolean,
       default: false,
     },
     auth: {
       user: {
-        doc: 'nodemailer auth->user',
+        doc: 'mailer auth->user.',
         format: String,
         default: undefined,
       },
       pass: {
-        doc: 'nodemailer auth->pass',
+        doc: 'mailer auth->pass.',
         format: String,
         default: undefined,
       },
@@ -30,15 +31,27 @@ const schema = {
     tls: {
       // do not fail on invalid certs
       rejectUnauthorized: {
-        doc: 'nodemailer tls->rejectUnauthorized',
+        doc: 'mailer tls->rejectUnauthorized.',
         format: Boolean,
         default: false,
       },
     },
     attachDataUrls: {
-      doc: 'nodemailer attachDataUrls',
+      doc: 'mailer attachDataUrls',
       format: Boolean,
       default: true,
+    },
+    from: {
+      name: {
+        doc: 'mailer from name',
+        format: String,
+        default: 'NO REPLY',
+      },
+      address: {
+        doc: 'mailer from address',
+        format: String,
+        default: 'noreply@localhost',
+      },
     },
   }
 };
