@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+
+<head>
+  <meta charset="utf-8" />
+  <meta httpequiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1.00001,viewport-fit=cover" />
+  <title>{{title}}</title>
+  <meta name="description" content="{{description}}" />
+
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:image" content="/static/logo.png">
+  <meta property="og:site_name" content="{{title}}">
+  <meta property="og:description" content="{{description}}">
+
+  <meta property="twitter:title" content="{{title}}">
+  <meta property="twitter:image" content="/static/logo.png">
+  <meta property="twitter:site" content="@VECTRUM">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@VECTRUM">
+  <meta name="twitter:description" content="{{description}}">
+
+  <style>
+    body {
+      padding: 50px;
+      font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    }
+
+    a {
+      color: #00B7FF;
+    }
+  </style>
+</head>
+
+<body>
+  {{#if noscript}} {{> noscript}} {{/if}}
+
+  <div id="root">
+    {{{body}}}
+  </div>
+
+  {{#if preloadedReduxState}} {{> preloaded_redux_state}} {{/if}}
+</body>
+
+</html>
