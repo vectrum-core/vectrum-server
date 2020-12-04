@@ -19,7 +19,6 @@ connectDb('VECTRUM-SERVER')
     setTimeout(async () => {
       const bot = Bot();
       const mailer = Mailer();
-      //mailer.sendVerifyYourEmail({ address: 'a.n.ivannikov@yandex.ru' });
       const server = new Server({
         dbConnection: mongoose.connection,
         bot,
