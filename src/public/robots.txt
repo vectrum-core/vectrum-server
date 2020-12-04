@@ -1,9 +1,0 @@
-# https://www.robotstxt.org/robotstxt.html
-User-agent: *
-
-Disallow: /api
-Disallow: /static/locales
-
-Disallow: /admin
-Disallow: /ru/admin
-Disallow: /en/admin
