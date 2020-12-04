@@ -98,3 +98,4 @@ transporter.use('compile', saveMail());
 
 
 module.exports = transporter;
+module.exports.i18n = i18n;
