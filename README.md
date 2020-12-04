@@ -1,5 +1,6 @@
 # VECTRUM WEB SERVER
 Сервер отдает страницы с приложением на React.js и обеспечивает ему API.
+Интегрирован рассыльщик email сообщений и телеграм бот.
 
 
 ## Журнал изменений
@@ -13,7 +14,7 @@
 ## Приложение на React.js
 Приложение пишется отдельно и устанавливается в собранном виде
 в папку `scr/react-app` при выпуске новой версии сервера.
-Из файла `scr/react-app/index.html` создается файл `src/views/layout-for-react-app.hbs`
+Из файла `scr/react-app/index.html` создается файл `src/server/views/layout-for-react-app.hbs`
 со вставкой переменных для шаблонизатора.
 Сам файл удаляется `scr/react-app/index.html` после этого.
 
