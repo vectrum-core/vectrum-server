@@ -8,11 +8,12 @@ const i18nextLogger = require('./logger');
 
 
 module.exports = () => {
-  i18next
+  const i18n = i18next.createInstance();
+  i18n
     .use(i18nextLogger)
     .use(LanguageDetector)
     .use(SyncBackend)
     .use(sprintf)
     .init(JSON.parse(JSON.stringify(i18nextConfig)));
-  return i18next;
+  return i18n;
 };
