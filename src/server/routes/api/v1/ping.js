@@ -6,7 +6,8 @@ const { smartStringify: SS } = require('../../../lib');
 
 router.get('/',
   async (req, res, next) => {
-    const log = req.app.locals.logger.getLogger('SERVER:ROUTER:GET "/api/v1/ping"');
+    const loggerName = `SERVER:ROUTER:${req.method} "${req.originalUrl}"`;
+    const log = req.app.locals.logger.getLogger(loggerName);
     const answer = { ok: false, error: undefined, result: undefined, };
 
     answer.result = 'pong';
@@ -20,7 +21,8 @@ router.get('/',
 
 router.post('/',
   async (req, res, next) => {
-    const log = req.app.locals.logger.getLogger('SERVER:ROUTER:POST "/api/v1/ping"');
+    const loggerName = `SERVER:ROUTER:${req.method} "${req.originalUrl}"`;
+    const log = req.app.locals.logger.getLogger(loggerName);
     const answer = { ok: false, error: undefined, result: undefined, };
 
     answer.result = 'pong';

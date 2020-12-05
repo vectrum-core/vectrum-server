@@ -9,7 +9,8 @@ const { smartStringify: SS } = require('../../../lib');
 
 router.post('/check',
   async (req, res, next) => {
-    const log = req.app.locals.logger.getLogger('SERVER:ROUTER:POST "/api/v1/device/check"');
+    const loggerName = `SERVER:ROUTER:${req.method} "${req.originalUrl}"`;
+    const log = req.app.locals.logger.getLogger(loggerName);
     const answer = { ok: false, error: undefined, result: undefined, };
 
     let { id, token, info } = req.body;

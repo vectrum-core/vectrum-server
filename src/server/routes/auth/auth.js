@@ -34,11 +34,7 @@ router.get('/tg',
         await user.save();
       }
 
-      const info = {
-        time: time,
-        ip: req.ip,
-        useragent: req.useragent,
-      };
+      const info = { time: time, ip: req.ip, useragent: req.useragent, };
       preloadedReduxState.profile = await user.toAuthJSON(info);
 
       log.debug('%s Login by Telegram successed!', SS(req.query));

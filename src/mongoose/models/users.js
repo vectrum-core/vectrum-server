@@ -132,7 +132,7 @@ schema.methods.toAuthJSON = function (info) {
     .then((jwt) => {
       return {
         guid: this._id,
-        apiToken: jwt,
+        token: jwt,
         permissions: this.permissions || [],
         authenticated: true,
       };

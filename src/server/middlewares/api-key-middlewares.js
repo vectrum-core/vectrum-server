@@ -79,6 +79,9 @@ const apiKeyPermissionsMiddleware = (required) => {
   }
 
   return async (req, res, next) => {
+    if (req.method === 'OPTIONS')
+      return next();
+
     let apiKey = _.get(req, defaults.requestProperty, undefined);
     if (!apiKey)
       return next(createError(401, `Header "X-API-KEY": "${xApiKey}" - Not found!`));

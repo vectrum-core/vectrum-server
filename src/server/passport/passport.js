@@ -34,13 +34,13 @@ passport.use(new LocalStrategy(localStrategyOptions, (username, password, done) 
     .then((user) => {
       if (!user) {
         log.debug(`Try auth failure. Incorrect ${type}:`, username);
-        const error = { message: `${type} or password is invalid`, };
+        const error = { message: `${type} or password is invalid.`, };
         return done(error, false);
       }
 
       if (!user.validatePassword(password)) {
         log.debug(`Try auth failure. Incorrect password for ${type}:`, username);
-        const error = { message: `${type} or password is invalid`, };
+        const error = { message: `${type} or password is invalid.`, };
         return done(error, false);
       }
 
