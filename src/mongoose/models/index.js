@@ -21,5 +21,6 @@ module.exports = {
 
   jwts: require('./jwts'),
   jwks: require('./jwks'),
+  api_keys: require('./api-keys'),
   devices: require('./devices'),
 };
