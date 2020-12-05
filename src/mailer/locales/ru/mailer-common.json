@@ -13,5 +13,6 @@
   "Verify your email": "Подтвердите свою почту",
   "Your email address is verified": "Ваш адрес электронной почты подтвержден",
   "Your email is verified": "Ваша почта подтверждена",
-  "Follow the link or enter this code": "Перейдите <a href=\"{{confirmLink}}\">по ссылке</a> или введите этот код:"
+  "Follow the link or enter this code": "Перейдите <a href=\"{{confirmLink}}\">по ссылке</a> или введите этот код:",
+  "Download": "Загрузить"
 }

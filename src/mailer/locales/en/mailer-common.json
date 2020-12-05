@@ -13,5 +13,6 @@
   "Verify your email": "Verify your email",
   "Your email address is verified": "Your email address is verified",
   "Your email is verified": "Your email is verified",
-  "Follow the link or enter this code": "Follow <a href=\"{{confirmLink}}\">the link </a> or enter this code:"
+  "Follow the link or enter this code": "Follow <a href=\"{{confirmLink}}\">the link </a> or enter this code:",
+  "Download": "Download"
 }
