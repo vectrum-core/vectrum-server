@@ -14,7 +14,7 @@ const logger = require('../../logger');
 const i18n = require('../i18n')();
 const session = require('../session');
 const passport = require('../passport');
-const { deviceIdMiddleware } = require('../device-id-middlewares');
+const { deviceIdMiddleware } = require('../middlewares/device-id-middlewares');
 const routes = require('../routes');
 
 

@@ -3,7 +3,7 @@ const router = express.Router();
 const cors = require('cors');
 const {
   apiKeyMiddleware, apiKeyPermissionsMiddleware,
-} = require('../api-key-middlewares');
+} = require('../middlewares/api-key-middlewares');
 const homeRouter = require('./home');
 const authRouter = require('./auth');
 const apiRouter = require('./api');
