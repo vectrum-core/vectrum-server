@@ -34,9 +34,13 @@ app.set('trust proxy', true);
 app.locals.layout = fs.existsSync(path.resolve(__dirname, '../../react-app'))
   ? 'layout-for-react-app'
   : 'layout';
-log.debug(`views layout: '${app.locals.layout}'`);
-hbs.localsAsTemplateData(app);
+log.debug('Views layout: "%s"', app.locals.layout);
 hbs.registerPartials(path.resolve(__dirname, '../views/partials'));
+hbs.registerHelper('t', function (i18n_key, context = {}) {
+  context.interpolation = { escapeValue: false };
+  const result = i18n.t(i18n_key, context);
+  return new hbs.handlebars.SafeString(result);
+});
 app.set('views', path.resolve(__dirname, '../views'));
 app.set('view engine', 'hbs');
 
@@ -53,8 +57,7 @@ app.get('/static/locales/resources.json', i18nextEM.getResourcesHandler(i18n));
 
 app.use(i18nextEM.handle(i18n, {
   ignoreRoutes: [
-    '/robots.txt',
-    '/fonts', '/pwa', '/static', '/api',
+    '/robots.txt', '/static', '/api', '/fonts', '/pwa',
   ],
   removeLngFromUrl: true,
 }));
@@ -71,8 +74,6 @@ app.use((req, res, next) => {
 
 // error handler
 app.use((err, req, res, next) => {
-  log.debug(req.body);
-
   const message = err.message;
   const error = app.get('env') === 'development' ? err : {};
 
@@ -83,7 +84,6 @@ app.use((err, req, res, next) => {
   if (req.headers['content-type'] !== 'application/json') {
     res.render('error', {
       layout: 'layout',
-      lang: 'en',
       title: `${message}`,
       description: `${message}`,
       message: `${message}`,
@@ -91,11 +91,22 @@ app.use((err, req, res, next) => {
     });
   } else {
     res.json({
-      error: { code: status, message: message, data: error, },
+      ok: false,
       id: req.body.id || null,
+      error: { code: status, message: message, data: error, },
     });
   }
-  log.error('Error:', status, '-', message, '-', error);
+
+  log.error({
+    error: err,
+    status: status,
+    message: message,
+    url: `${req.protocol}://${req.headers.host}${req.originalUrl}`,
+    body: req.body,
+    query: req.query,
+    params: req.params,
+    useragent: req.useragent,
+  });
 });
 
 module.exports = app;

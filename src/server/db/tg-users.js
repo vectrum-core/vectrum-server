@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const TGUser = mongoose.model('tg_users');
 const log = require('../../logger').getLogger('SERVER:DB:TG_USERS');
-const SS = require('../lib').smartStringify;
+const { smartStringify: SS } = require('../lib');
 
 
 

@@ -2,7 +2,6 @@ const KJUR = require('jsrsasign');
 const mongoose = require('mongoose');
 const JWK = mongoose.model('jwks');
 const log = require('../../logger').getLogger('SERVER:DB:JWKS');
-const SS = require('../lib').smartStringify;
 
 
 

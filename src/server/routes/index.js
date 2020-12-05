@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const cors = require('cors');
+const { apiKeyMiddleware, apiKeyPermissionsMiddleware } = require('../api-key-middlewares');
 const homeRouter = require('./home');
 const authRouter = require('./auth');
 const apiRouter = require('./api');
@@ -19,6 +20,8 @@ router.use('/auth', authRouter);
 
 router.use('/api',
   cors(),
+  apiKeyMiddleware(),
+  //apiKeyPermissionsMiddleware('app'),
   apiRouter
 );
 

@@ -21,7 +21,8 @@ const schema = new Schema({
     required: true, sparse: true,
   },
 
-  blocked: { type: Boolean, index: true, default: true, },
+  blocked: { type: Boolean, sparse: true, default: false, },
+  app: { type: Boolean, sparse: true, default: false, },
 
   permissions: [{
     type: String, lowercase: true, trim: true,
@@ -58,6 +59,7 @@ model.estimatedDocumentCount(async (error, count) => {
         _id: 'f1839e8e-02ab-4374-88b6-179d857fd964',
         key: 'LrOD55Jb1ixNLfPDshRLIcUURrPE05ivzmk4QLbn75A',
         blocked: false,
+        app: true,
         comment: 'VECTRUM Web App v0.1.0',
         permissions: ['app'],
       },

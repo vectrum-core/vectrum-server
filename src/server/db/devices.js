@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Device = mongoose.model('devices');
 const log = require('../../logger').getLogger('SERVER:DB:DEVICES');
-const SS = require('../lib').smartStringify;
 
 
 
