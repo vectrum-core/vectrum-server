@@ -20,4 +20,5 @@ module.exports = {
   phone_numbers: require('./phone-numbers'),
 
   jwts: require('./jwts'),
+  jwks: require('./jwks'),
 };

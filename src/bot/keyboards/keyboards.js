@@ -89,13 +89,13 @@ const ikbMenuShortInfo = (ctx) => {
     request_write_access: true,
   }
 
-  kbArray.push([
+  /*kbArray.push([
     loginButton(
       'Авторизоваться на ' + cfg.get('domains.root'),
       cfg.get('domains.root') + '/auth/tg',
       opts
     )
-  ]);
+  ]);*/
 
   kbArray.push([
     urlButton(
@@ -108,6 +108,13 @@ const ikbMenuShortInfo = (ctx) => {
     urlButton(
       'Перейти в обменник',
       cfg.get('domains.root') + '/exchange'
+    )
+  ]);
+
+  kbArray.push([
+    urlButton(
+      'Перейти в эксплорер',
+      cfg.get('domains.root') + '/explorer'
     )
   ]);
 
