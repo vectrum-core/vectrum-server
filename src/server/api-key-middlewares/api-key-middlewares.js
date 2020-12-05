@@ -1,7 +1,7 @@
 const createError = require('http-errors');
 const KJUR = require('jsrsasign');
-const util = require('util');
 const _ = require('lodash');
+const log = require('../../logger').getLogger('SERVER:APP:MIDLEWARES:ApiKey');
 const db = require('../db');
 
 
@@ -21,6 +21,8 @@ function isArray(value) {
 
 
 const apiKeyMiddleware = (options = {}) => {
+  const logTrace = 'apiKeyMiddleware().';
+
   const opts = Object.assign({}, defaults, options);
 
   return async (req, res, next) => {
@@ -68,6 +70,8 @@ const apiKeyMiddleware = (options = {}) => {
 
 // https://github.com/MichielDeMey/express-jwt-permissions/blob/master/index.js
 const apiKeyPermissionsMiddleware = (required) => {
+  const logTrace = 'apiKeyPermissionsMiddleware().';
+
   if (isString(required)) {
     required = [[required]];
   } else if (isArray(required) && required.every(isString)) {
@@ -100,4 +104,3 @@ const apiKeyPermissionsMiddleware = (required) => {
 
 module.exports.apiKeyMiddleware = apiKeyMiddleware;
 module.exports.apiKeyPermissionsMiddleware = apiKeyPermissionsMiddleware;
-//module.exports.apiKeyStatsMiddleware = apiKeyStatsMiddleware;

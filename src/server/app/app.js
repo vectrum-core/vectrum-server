@@ -14,6 +14,7 @@ const logger = require('../../logger');
 const i18n = require('../i18n')();
 const session = require('../session');
 const passport = require('../passport');
+const { deviceIdMiddleware } = require('../device-id-middlewares');
 const routes = require('../routes');
 
 
@@ -64,6 +65,8 @@ app.use(i18nextEM.handle(i18n, {
 
 app.use(session());
 app.use(passport.initialize());
+
+app.use(deviceIdMiddleware());
 
 app.use(routes);
 
