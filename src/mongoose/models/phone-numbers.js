@@ -31,5 +31,5 @@ schema.plugin(
 
 
 module.exports = mongoose.model(name, schema);
-module.exports.schema = schema;
 module.exports.name = name;
+module.exports.schema = schema;
