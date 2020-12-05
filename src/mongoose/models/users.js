@@ -150,8 +150,8 @@ const model = mongoose.model(name, schema);
 model.estimatedDocumentCount(async (error, count) => {
   if (count === 0) {
     const docs = [
-      { email: 'root@example.com', raw_password: 'qwerty', permissions: ['root'], },
-      { email: 'admin@example.com', raw_password: 'qwerty', permissions: ['admin'], },
+      { email: 'root@example.com', raw_password: '12345678', permissions: ['root'], },
+      { email: 'admin@example.com', raw_password: '12345678', permissions: ['admin'], },
     ];
     for (let i in docs) {
       const doc = new model(docs[i]);
