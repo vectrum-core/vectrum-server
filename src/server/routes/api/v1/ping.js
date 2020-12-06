@@ -1,13 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const { smartStringify: SS } = require('../../../lib');
+const { smartStringify: SS, getRouterLogger } = require('../../../lib');
 
 
 
 router.get('/',
   async (req, res, next) => {
-    const loggerName = `SERVER:ROUTER:${req.method} "${req.originalUrl}"`;
-    const log = req.app.locals.logger.getLogger(loggerName);
+    const log = getRouterLogger(req);
     const answer = { ok: false, error: undefined, result: undefined, };
 
     answer.result = 'pong';
@@ -21,8 +20,7 @@ router.get('/',
 
 router.post('/',
   async (req, res, next) => {
-    const loggerName = `SERVER:ROUTER:${req.method} "${req.originalUrl}"`;
-    const log = req.app.locals.logger.getLogger(loggerName);
+    const log = getRouterLogger(req);
     const answer = { ok: false, error: undefined, result: undefined, };
 
     answer.result = 'pong';

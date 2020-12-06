@@ -1,20 +1,22 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../../../db');
+const passport = require('../../../../passport');
+const db = require('../../../../db');
+const { getRouterLogger } = require('../../../../lib');
+const emailRouter = require('./email');
 
 
 
 router.post('/signup',
   async (req, res, next) => {
-    const loggerName = `SERVER:ROUTER:${req.method} "${req.originalUrl}"`;
-    const log = req.app.locals.logger.getLogger(loggerName);
+    const log = getRouterLogger(req);
     const time = new Date().getTime();
     const answer = { ok: false, error: undefined, result: undefined, };
     const { email, password } = req.body;
 
     let user = await db.getUserByEmail(email);
     if (user) {
-      answer.error = 'Email is already taken.';
+      answer.error = { message: 'Email is already taken.' };
       return res.json(answer);
     }
 
@@ -30,15 +32,14 @@ router.post('/signup',
 
 router.post('/permissions',
   async (req, res, next) => {
-    const loggerName = `SERVER:ROUTER:${req.method} "${req.originalUrl}"`;
-    const log = req.app.locals.logger.getLogger(loggerName);
+    const log = getRouterLogger(req);
     const time = new Date().getTime();
     const answer = { ok: false, error: undefined, result: undefined, };
     const { guid, permissions } = req.body;
 
     let user = await db.getUserById(guid);
     if (!user) {
-      answer.error = 'User not found.';
+      answer.error = { message: 'User not found.' };
       return res.json(answer);
     }
 
@@ -57,21 +58,20 @@ router.post('/permissions',
 
 router.post('/signin',
   async (req, res, next) => {
-    const loggerName = `SERVER:ROUTER:${req.method} "${req.originalUrl}"`;
-    const log = req.app.locals.logger.getLogger(loggerName);
+    const log = getRouterLogger(req);
     const time = new Date().getTime();
     const answer = { ok: false, error: undefined, result: undefined, };
     const { email, password } = req.body;
 
     let user = await db.getUserByEmail(email);
     if (!user) {
-      answer.error = 'Email or Password is invalid.';
+      answer.error = { message: 'Email or Password is invalid.' };
       return res.json(answer);
     }
 
     const isValid = await user.validatePassword(password);
     if (!isValid) {
-      answer.error = 'Email or Password is invalid.';
+      answer.error = { message: 'Email or Password is invalid.' };
       return res.json(answer);
     }
 
@@ -89,9 +89,9 @@ router.post('/signin',
 
 
 router.post('/logout',
+  passport.authenticate('jwt', { session: false }),
   async (req, res, next) => {
-    const loggerName = `SERVER:ROUTER:${req.method} "${req.originalUrl}"`;
-    const log = req.app.locals.logger.getLogger(loggerName);
+    const log = getRouterLogger(req);
     const time = new Date().getTime();
     const answer = { ok: false, error: undefined, result: undefined, };
     const xGuid = req.headers['x-guid'];
@@ -99,7 +99,7 @@ router.post('/logout',
 
     const user = await db.getUserById(xGuid);
     if (!user) {
-      answer.error = 'User not found.';
+      answer.error = { message: 'User not found.' };
       return res.json(answer);
     }
     user.last_active_at = time;
@@ -115,6 +115,12 @@ router.post('/logout',
     log.info('User logout. guid:', xGuid);
     return res.json(answer);
   }
+);
+
+
+router.use('/email',
+  passport.authenticate('jwt', { session: false }),
+  emailRouter
 );
 
 

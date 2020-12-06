@@ -1,19 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const SS = require('../../../../lib').smartStringify;
+const { smartStringify: SS, getRouterLogger } = require('../../../../lib');
 
 
 
 router.get('/info',
   async (req, res, next) => {
-    const log = req.app.locals.logger.getLogger('ROUTER: "/api/v1/vectrum"');
-    const logTrace = 'Method GET.';
-    const answer = { jsonrpc: '2.0', id: null, ok: false, error: undefined, result: undefined, };
+    const log = getRouterLogger(req);
+    const answer = { ok: false, error: undefined, result: undefined, };
 
     answer.result = 'pong';
     answer.ok = true;
 
-    log.trace('%s Response: "%s"', logTrace, SS(answer));
+    log.trace('%s Response: "%s"', SS(answer));
     return res.json(answer);
   }
 );
@@ -21,14 +20,13 @@ router.get('/info',
 
 router.get('/stats',
   async (req, res, next) => {
-    const log = req.app.locals.logger.getLogger('ROUTER: "/api/v1/vectrum"');
-    const logTrace = 'Method GET.';
-    const answer = { jsonrpc: '2.0', id: null, ok: false, error: undefined, result: undefined, };
+    const log = getRouterLogger(req);
+    const answer = { ok: false, error: undefined, result: undefined, };
 
     answer.result = 'pong';
     answer.ok = true;
 
-    log.trace('%s Response: "%s"', logTrace, SS(answer));
+    log.trace('%s Response: "%s"', SS(answer));
     return res.json(answer);
   }
 );
@@ -36,14 +34,13 @@ router.get('/stats',
 
 router.get('/stats/accounts',
   async (req, res, next) => {
-    const log = req.app.locals.logger.getLogger('ROUTER: "/api/v1/vectrum"');
-    const logTrace = 'Method GET.';
-    const answer = { jsonrpc: '2.0', id: null, ok: false, error: undefined, result: undefined, };
+    const log = getRouterLogger(req);
+    const answer = { ok: false, error: undefined, result: undefined, };
 
     answer.result = 'pong';
     answer.ok = true;
 
-    log.trace('%s Response: "%s"', logTrace, SS(answer));
+    log.trace('%s Response: "%s"', SS(answer));
     return res.json(answer);
   }
 );
@@ -51,14 +48,13 @@ router.get('/stats/accounts',
 
 router.get('/stats/token',
   async (req, res, next) => {
-    const log = req.app.locals.logger.getLogger('ROUTER: "/api/v1/vectrum"');
-    const logTrace = 'Method GET.';
-    const answer = { jsonrpc: '2.0', id: null, ok: false, error: undefined, result: undefined, };
+    const log = getRouterLogger(req);
+    const answer = { ok: false, error: undefined, result: undefined, };
 
     answer.result = 'pong';
     answer.ok = true;
 
-    log.trace('%s Response: "%s"', logTrace, SS(answer));
+    log.trace('%s Response: "%s"', SS(answer));
     return res.json(answer);
   }
 );

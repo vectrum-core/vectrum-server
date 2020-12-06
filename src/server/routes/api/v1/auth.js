@@ -2,14 +2,14 @@ const express = require('express');
 const router = express.Router();
 const db = require('../../../db');
 const cfg = require('../../../../config');
-const { smartStringify: SS, checkTelegramAuthData } = require('../../../lib');
+const { smartStringify: SS, checkTelegramAuthData, getRouterLogger } = require('../../../lib');
 
 
 
 // https://core.telegram.org/widgets/login#receiving-authorization-data
 router.get('/tg',
   async (req, res, next) => {
-    const log = req.app.locals.logger.getLogger('SERVER:ROUTER:%s "%s"', req.method, req.originalUrl);
+    const log = getRouterLogger(req);
     const preloadedReduxState = {};
     const time = new Date().getTime();
 
@@ -49,7 +49,7 @@ router.get('/tg',
 
 router.post('/tg',
   async (req, res, next) => {
-    const log = req.app.locals.logger.getLogger('SERVER:ROUTER:%s "%s"', req.method, req.originalUrl);
+    const log = getRouterLogger(req);
     const preloadedReduxState = {};
     const time = new Date().getTime();
 

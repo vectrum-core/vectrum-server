@@ -5,7 +5,7 @@ const {
 } = require('../../../middlewares/api-key-middlewares');
 const pingRouter = require('./ping');
 const deviceRouter = require('./devices');
-const userRouter = require('./users');
+const profileRouter = require('./profile');
 const vectrumRouter = require('./vectrum');
 
 
@@ -17,7 +17,7 @@ router.use(apiKeyMiddleware());
 router.use(apiKeyPermissionsMiddleware('app'));
 
 router.use('/devices', deviceRouter);
-router.use('/users', userRouter);
+router.use('/profile', profileRouter);
 
 
 router.use('/vectrum', vectrumRouter);

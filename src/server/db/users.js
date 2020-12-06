@@ -4,6 +4,7 @@ const log = require('../../logger').getLogger('SERVER:DB:USERS');
 const { smartStringify: SS } = require('../lib');
 
 
+
 async function getUserById(_id) {
   const logTrace = 'getUserById().';
   return new Promise(async (resolve, reject) => {

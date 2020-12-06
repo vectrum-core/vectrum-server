@@ -3,4 +3,5 @@ module.exports = {
   ...require('./smart-stringify'),
   ...require('./string-to-boolean'),
   ...require('./check-telegram-auth-data'),
+  ...require('./router-logger'),
 };
