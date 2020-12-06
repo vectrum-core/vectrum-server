@@ -48,7 +48,7 @@ router.post('/permissions',
     answer.result = true;
     answer.ok = true;
 
-    log.info('User created by email. guid:', answer.result.guid);
+    log.info('?permissions. guid:', answer.result.guid);
     return res.json(answer);
   }
 );
