@@ -73,7 +73,7 @@ async function createUserByEmailAndPassword(email, password) {
   const logTrace = 'createUserByEmailAndPassword().';
   return new Promise(async (resolve, reject) => {
     try {
-      const doc = new User({ email: email });
+      const doc = new User({ email, status: { agreed: true, }, });
       await doc.setAndSavePassword(password);
       await doc.save();
       log.trace('%s Result:', logTrace, SS(doc));

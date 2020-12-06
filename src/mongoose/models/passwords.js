@@ -13,14 +13,14 @@ const schema = new Schema({
 
   salt: {
     size: { type: Number, required: true, default: cfg.get('password.salt.size'), },
-    value: { type: String, trim: true, required: true, },
+    value: { type: String, lowercase: true, trim: true, required: true, },
   },
 
   hash: {
     iterations: { type: Number, required: true, default: cfg.get('password.hash.iterations'), },
     keylen: { type: Number, required: true, default: cfg.get('password.hash.keylen'), },
     digest: { type: String, required: true, default: cfg.get('password.hash.digest'), },
-    value: { type: String, trim: true, required: true, },
+    value: { type: String, lowercase: true, trim: true, required: true, },
   },
 }, {
   timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
