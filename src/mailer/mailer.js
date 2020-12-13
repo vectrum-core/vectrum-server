@@ -11,20 +11,13 @@ const from = {
 };
 
 
-const sendVerifyYourEmail = async (params = {}) => {
-  let { language, address, token, code, } = params;
-
-  if (language && language !== i18n.language)
-    await i18n.changeLanguage(mail.data.context.language);
-  else language = i18nextConfig.fallbackLng;
-
+const sendVerifyYourEmail = async (address, code, language) => {
   const options = {
     from,
     to: [{ address, }],
     subject: i18n.t('Your verification code', { code }),
     template: 'verify_your_email',
     context: {
-      confirmLink: `/verify/${token}`,
       confirmCode: code,
       language,
     },
@@ -33,8 +26,7 @@ const sendVerifyYourEmail = async (params = {}) => {
 };
 
 
-const sendYourEmailVerified = (params = {}) => {
-  const { language, address, } = params;
+const sendYourEmailVerified = (address, language) => {
   const options = {
     from,
     to: [{ address, }],

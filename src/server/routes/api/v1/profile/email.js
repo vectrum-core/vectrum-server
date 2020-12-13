@@ -1,7 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
+const EmailCode = mongoose.model('email_codes');
 const db = require('../../../../db');
-const { getRouterLogger } = require('../../../../lib');
+const mailer = require('../../../../../mailer')();
+const { getRouterLogger, checkPOW } = require('../../../../lib');
+
 
 
 
@@ -24,10 +28,113 @@ router.get('/',
     answer.result = email;
     answer.ok = true;
 
-    log.info('User getted email data. guid:', answer.result.guid);
+    log.info('User getted email data. guid:', xGuid);
     return res.json(answer);
   }
 );
+
+
+router.post('/check',
+  async (req, res, next) => {
+    const log = getRouterLogger(req);
+    const answer = { ok: false, error: undefined, result: undefined, };
+    const { email, nonce } = req.body;
+
+    const powIsvalid = checkPOW(email, nonce, 4);
+    if (!powIsvalid) {
+      answer.error = { message: 'POW is invalid.' };
+      return res.json(answer);
+    }
+
+    let user = await db.getUserByEmail(email);
+    if (user) {
+      answer.error = { message: 'Email is already taken.' };
+      return res.json(answer);
+    }
+
+    const emailDoc = await db.getOrCreateEmail(email);
+
+    answer.result = true;
+    answer.ok = true;
+
+    log.info('Checked email address. email:', email);
+    return res.json(answer);
+  }
+);
+
+
+router.post('/code',
+  async (req, res, next) => {
+    const log = getRouterLogger(req);
+    const answer = { ok: false, error: undefined, result: undefined, };
+    const { email, language } = req.body;
+    const lng = language || req.language;
+
+    const emailDoc = await db.getEmailById(email);
+    if (!emailDoc) {
+      answer.error = { message: 'Email not found.' };
+      return res.json(answer);
+    }
+
+    const codeDoc = await db.createEmailConfirmationCode(email);
+    await mailer.sendVerifyYourEmail(email, codeDoc.code, lng);
+
+    answer.result = { created_at: codeDoc.created_at.getTime() };
+    answer.ok = true;
+
+    log.info('Getted email confirmation code. email:', email);
+    return res.json(answer);
+  }
+);
+
+
+router.post('/confirm',
+  async (req, res, next) => {
+    const log = getRouterLogger(req);
+    const time = new Date().getTime();
+    const answer = { ok: false, error: undefined, result: undefined, };
+    const { email, code, language } = req.body;
+    const lng = language || req.language;
+
+    const emailDoc = await db.getEmailById(email);
+    if (!emailDoc) {
+      answer.error = { message: 'Email not found.' };
+      return res.json(answer);
+    }
+
+    let codeDoc = await db.getEmailConfirmationCode(email);
+    if (!codeDoc) {
+      answer.error = { message: 'Email confirmation code not found.' };
+      return res.json(answer);
+    }
+
+    if (!codeDoc.validateCode(code)) {
+      answer.error = { message: 'Incorrect email confirmation code.' };
+      codeDoc = await EmailCode.findOneAndUpdate(
+        { _id: codeDoc._id }, { $inc: { tryes: 1 } }, { new: true }
+      );
+      if (codeDoc.tryes > 2) {
+        await EmailCode.findByIdAndRemove({ _id: codeDoc._id });
+        answer.error.message += ' Tryes ended!';
+      } else {
+        answer.error.message += ` Tryes ${codeDoc.tryes}/3!`;
+        return res.json(answer);
+      }
+    } else {
+      emailDoc.confirmed = true;
+      await emailDoc.save();
+      await EmailCode.findByIdAndRemove({ _id: codeDoc._id });
+      await mailer.sendYourEmailVerified(email, lng);
+    }
+
+    answer.result = true;
+    answer.ok = true;
+
+    log.info('Email confirmation. email:', email);
+    return res.json(answer);
+  }
+);
+
 
 
 module.exports = router;

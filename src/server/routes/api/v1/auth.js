@@ -7,7 +7,7 @@ const { smartStringify: SS, checkTelegramAuthData, getRouterLogger } = require('
 
 
 // https://core.telegram.org/widgets/login#receiving-authorization-data
-router.get('/tg',
+router.get('/telegram',
   async (req, res, next) => {
     const log = getRouterLogger(req);
     const preloadedReduxState = {};
@@ -47,7 +47,7 @@ router.get('/tg',
 );
 
 
-router.post('/tg',
+router.post('/telegram',
   async (req, res, next) => {
     const log = getRouterLogger(req);
     const preloadedReduxState = {};
@@ -86,6 +86,25 @@ router.post('/tg',
       log.warn('%s Login by telegram failed!', SS(req.body));
 
     return res.json(preloadedReduxState.profile);
+  }
+);
+
+
+router.post('/telegram/check',
+  async (req, res, next) => {
+    const answer = { ok: false, error: undefined, result: undefined, };
+
+    const token = cfg.get('bot.token');
+    req.body.id = parseInt(req.body.id);
+    const authData = req.body;
+
+    if (checkTelegramAuthData({ token, ...authData })) {
+      answer.result = true;
+      answer.ok = true;
+      return res.json(answer);
+    }
+    answer.result = false;
+    return res.json(answer);
   }
 );
 

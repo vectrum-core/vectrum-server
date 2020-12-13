@@ -23,4 +23,6 @@ module.exports = {
   jwks: require('./jwks'),
   api_keys: require('./api-keys'),
   devices: require('./devices'),
+  app_events: require('./app-events'),
+  email_codes: require('./email-codes'),
 };

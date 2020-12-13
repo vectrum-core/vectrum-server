@@ -2,8 +2,8 @@ const { createHash, createHmac } = require('crypto');
 
 
 
-function checkTelegramAuthData(params = {}) {
-  const { token, hash, ...data } = params;
+function checkTelegramAuthData(token, telegramAuthData) {
+  const { hash, ...data } = telegramAuthData;
 
   const secret = createHash('sha256')
     .update(token)

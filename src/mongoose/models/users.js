@@ -4,6 +4,7 @@ const AutoIncrementPlugin = require('mongoose-sequence')(mongoose);
 const { v4: uuidv4, validate: uuidv4Validate } = require('uuid');
 const uuidValidator = require('./lib/validator-uuid');
 const accountNameValidator = require('./lib/validator-account-name');
+const usernameValidator = require('./lib/validator-username');
 
 
 
@@ -19,13 +20,24 @@ const schema = new Schema({
   },
 
   email: { ref: 'emails', type: String, lowercase: true, trim: true, sparse: true, },
+  username: {
+    type: String, trim: true,
+    minLength: 5, maxLength: 32,
+    sparse: true,
+    validate: usernameValidator,
+  },
+  phone_number: { ref: 'phone_numbers', type: String, trim: true, sparse: true, },
   password: { ref: 'passwords', type: Schema.Types.ObjectId, },
   tg_user: { ref: 'tg_users', type: Number, sparse: true, },
-  phone_number: { ref: 'phone_numbers', type: String, trim: true, sparse: true, },
 
   first_name: { type: String, trim: true, },
   middle_name: { type: String, trim: true, },
   last_name: { type: String, trim: true, },
+  gender: {
+    type: String, lowercase: true, trim: true,
+    enum: ['male', 'female', 'other'],
+    sparse: true,
+  },
 
   permissions: {
     type: [{ type: String, lowercase: true, trim: true, sparse: true, }],
@@ -36,7 +48,8 @@ const schema = new Schema({
 
   account: {
     ref: 'accounts',
-    type: String, lowercase: true, trim: true, minLength: 1, maxLength: 12,
+    type: String, lowercase: true, trim: true,
+    minLength: 1, maxLength: 12,
     sparse: true,
     validate: accountNameValidator,
   },
@@ -64,14 +77,6 @@ const schema = new Schema({
 
 schema.pre('validate', async function (next) {
   if (!this._id) this._id = uuidv4();
-
-  if (this.email) {
-    let email = await mongoose.model('emails').findById(this.email);
-    if (!email) {
-      email = new mongoose.model('emails')({ email: this.email });
-      await email.save();
-    }
-  };
 
   if (this.account && this.account.length < 12) {
     if (
@@ -150,8 +155,8 @@ const model = mongoose.model(name, schema);
 model.estimatedDocumentCount(async (error, count) => {
   if (count === 0) {
     const docs = [
-      { email: 'root@example.com', raw_password: '12345678', permissions: ['root'], },
-      { email: 'admin@example.com', raw_password: '12345678', permissions: ['admin'], },
+      { username: 'root', raw_password: '12345678', permissions: ['root'], },
+      { username: 'admin', raw_password: '12345678', permissions: ['admin'], },
     ];
     for (let i in docs) {
       const doc = new model(docs[i]);
