@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const { smartStringify: SS, getRouterLogger } = require('../../../../lib');
+const passport = require('../../../../passport');
+const robotRouter = require('./robot');
 
 
 
@@ -59,5 +61,10 @@ router.get('/stats/token',
   }
 );
 
+
+router.use('/robot',
+  passport.authenticate('jwt', { session: false }),
+  robotRouter
+);
 
 module.exports = router;
