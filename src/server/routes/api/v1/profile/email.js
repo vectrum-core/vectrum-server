@@ -8,6 +8,13 @@ const { getRouterLogger, checkPOW } = require('../../../../lib');
 
 
 
+/*
+const powIsvalid = checkPOW(email, nonce, 4);
+if (!powIsvalid) {
+  answer.error = { message: 'POW is invalid.' };
+  return res.json(answer);
+}
+*/
 
 router.get('/',
   async (req, res, next) => {
@@ -40,12 +47,6 @@ router.post('/check',
     const answer = { ok: false, error: undefined, result: undefined, };
     const { email, nonce } = req.body;
 
-    const powIsvalid = checkPOW(email, nonce, 4);
-    if (!powIsvalid) {
-      answer.error = { message: 'POW is invalid.' };
-      return res.json(answer);
-    }
-
     let user = await db.getUserByEmail(email);
     if (user) {
       answer.error = { message: 'Email is already taken.' };
@@ -61,6 +62,33 @@ router.post('/check',
     return res.json(answer);
   }
 );
+
+
+router.post('/recovery',
+  async (req, res, next) => {
+    const log = getRouterLogger(req);
+    const answer = { ok: false, error: undefined, result: undefined, };
+    const { email } = req.body;
+
+    if (email) {
+      log.info('Recovery pass by email address. email:', email);
+      let user = await db.getUserByEmail(email);
+      if (user) {
+        answer.error = { message: 'Email not found.' };
+        return res.json(answer);
+      }
+
+      // TODO отправка письма с кодом
+      answer.result = true;
+      answer.ok = true;
+      return res.json(answer);
+    }
+
+    answer.error = { message: 'Not found.' };
+    return res.json(answer);
+  }
+);
+
 
 
 router.post('/code',

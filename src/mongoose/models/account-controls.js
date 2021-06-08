@@ -29,12 +29,6 @@ const schema = new Schema({
 });
 
 
-schema.index(
-  { controlled_account: 1, controlled_permission: 1, controlling_account: 1, },
-  { unique: true, }
-);
-
-
 module.exports = mongoose.model(name, schema);
 module.exports.name = name;
 module.exports.schema = schema;

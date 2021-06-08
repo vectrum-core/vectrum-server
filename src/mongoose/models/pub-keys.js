@@ -29,12 +29,6 @@ const schema = new Schema({
 });
 
 
-schema.index(
-  { name: 1, permission: 1, public_key: 1, },
-  { unique: true, }
-);
-
-
 module.exports = mongoose.model(name, schema);
 module.exports.name = name;
 module.exports.schema = schema;

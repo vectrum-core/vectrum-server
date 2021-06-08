@@ -6,7 +6,7 @@ const uuidValidator = require('./lib/validator-uuid');
 
 
 
-const name = 'devices';
+const name = 'wallets';
 
 const schema = new Schema({
   num: { type: Number, min: 1, },

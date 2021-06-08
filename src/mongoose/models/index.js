@@ -2,15 +2,11 @@ module.exports = {
   account_controls: require('./account-controls'),
   accounts: require('./accounts'),
   pub_keys: require('./pub-keys'),
+  action_traces: require('./action_traces'),
 
   counters: require('./counters'),
 
   mails: require('./mails'),
-  continents: require('./continents'),
-  countries: require('./countries'),
-  time_zones: require('./time-zones'),
-  languages: require('./languages'),
-  currencies: require('./currencies'),
 
   emails: require('./emails'),
   passwords: require('./passwords'),
@@ -21,8 +17,5 @@ module.exports = {
 
   jwts: require('./jwts'),
   jwks: require('./jwks'),
-  api_keys: require('./api-keys'),
-  devices: require('./devices'),
-  app_events: require('./app-events'),
   email_codes: require('./email-codes'),
 };

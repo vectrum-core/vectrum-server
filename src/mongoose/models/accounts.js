@@ -22,7 +22,7 @@ const abiSchema = new Schema({
 const schema = new Schema({
   name: {
     type: String, lowercase: true, trim: true, minlength: 1, maxlength: 12,
-    required: true, unique: true,
+    required: true, index: true,
     validate: accountNameValidator,
   },
   abi: { type: abiSchema, },
