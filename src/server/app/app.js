@@ -13,6 +13,7 @@ const cfg = require('../../config');
 const logger = require('../../logger');
 const i18n = require('../i18n')();
 //const session = require('../session');
+const session = require('express-session')
 const passport = require('../passport');
 const routes = require('../routes');
 
@@ -63,6 +64,12 @@ app.use(i18nextEM.handle(i18n, {
 }));
 
 //app.use(session());
+app.use(session({
+  secret: 'keyboard&^&cat',
+  cookie: {
+    secure: false,
+  }
+}));
 app.use(passport.initialize());
 
 app.use(routes);
