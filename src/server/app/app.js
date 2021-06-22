@@ -46,7 +46,7 @@ app.set('view engine', 'hbs');
 
 app.use(bodyParser.json({ limit: '1mb', }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '1mb', }));
-app.use(cookieParser());
+//app.use(cookieParser());
 app.use(useragent.express());
 
 app.use(express.static(path.resolve(__dirname, '../../react-app')));
